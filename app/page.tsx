@@ -1,6 +1,7 @@
 
 import React from 'react'
 import CategoryTabs from '../components/tabs/CategoryTabs.jsx'
+import Swiper from '@/components/swiper/BannerSwiper.jsx'
 
 export default function Home() {
 
@@ -8,6 +9,10 @@ export default function Home() {
 
   return (
     <div>
+      <div className='css-xeauxt'>
+      <Swiper />
+      </div>
+      
       <div className='css-xeauxt'>
         <div className="css-uf1ume">
           <h2 className="css-9qa72f">🔥 이번주 인기 모임</h2>
@@ -58,12 +63,18 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          <CategoryTabs />
-
-
         </div>
       </div>
+      
+      <div className='css-xeauxt'>
+        <div>
+          <h2 className="css-9qa72f">😀 모임</h2>
+          <CategoryTabs />
+        </div>
+      </div>
+
+
+
     </div>
   )
 }
