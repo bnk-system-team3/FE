@@ -551,7 +551,72 @@
   box-sizing: inherit;
   font-family: inherit;
 }
+.input_labelText__3R2TI{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: inline-block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: 500;
+}
 
+.input_customInput__1e1Il{
+  box-sizing: inherit;
+  font-family: inherit;
+  outline: none;
+  padding: 0 1.5rem;
+  margin-right: .5rem;
+  width: 100%;
+  height: 56px;
+  min-height: 56px;
+  line-height: 44px;
+  box-shadow: none;
+  padding-left: 16px;
+  padding-right: 52px;
+  border: 1px solid #e1e3e8;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom:10px;
+}
+.writebutton_buttons__2qW83{
+  color: #333;
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1rem;
+}
+.writebutton_cancelButton__2W7b_{
+  box-sizing: inherit;
+  font-family: inherit;
+  background: #e9ecef;
+  color: #495057;
+  margin-right: 1rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  padding: 0 1.25rem;
+  height: 2rem;
+  font-size: 1rem;
+}
+.writebutton_registerButton__n_O2M{
+  box-sizing: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  padding: 0 1.25rem;
+  height: 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: #262626;
+  color: #fff;
+}
 .studyList_studyList__3xoys{
   box-sizing: inherit;
   font-family: inherit;
