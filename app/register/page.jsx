@@ -1,10 +1,87 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
+import 'react-quill/dist/quill.snow.css';
+import dynamic from 'next/dynamic';
+import ComboBox from '@/components/comboBox/ComboBox.jsx';
 
 
+
+const options = [
+  { value: 'study', label: '스터디' },
+  { value: 'project', label: '프로젝트' },
+];
+
+const IndexPage = (options) => {
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleSelectChange = (option) => {
+    setSelectedOption(option);
+  };
+
+  return (
+    <div>
+      <label>모집 구분</label>
+      <ComboBox
+        options={options}
+        onChange={handleSelectChange}
+        value={selectedOption}
+      />
+      {selectedOption && (
+        <p>선택된 옵션: {selectedOption.label}</p>
+      )}
+    </div>
+  );
+};
+
+const QuillWrapper = dynamic(() => import('react-quill'), {
+  ssr: false,
+  loading: () => <p>Loading ...</p>,
+})
+
+const modules = {
+  toolbar: [
+    [{ header: '1' }, { header: '2' }, { font: [] }],
+    [{ size: [] }],
+    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    [
+      { list: 'ordered' },
+      { list: 'bullet' },
+      { indent: '-1' },
+      { indent: '+1' },
+    ],
+    ['link', 'image', 'video'],
+    ['clean'],
+  ],
+  clipboard: {
+    // toggle to add extra line breaks when pasting HTML:
+    matchVisual: false,
+  },
+}
+/*
+ * Quill editor formats
+ * See https://quilljs.com/docs/formats/
+ */
+const formats = [
+  'header',
+  'font',
+  'size',
+  'bold',
+  'italic',
+  'underline',
+  'strike',
+  'blockquote',
+  'list',
+  'bullet',
+  'indent',
+  'link',
+  'image',
+  'video',
+]
 export default function page() {
   return (
     <div>
-      <div class="postRegister_postWrapper__1s7mv">
+      
+      <div className="postRegister_postWrapper__1s7mv">
         <section>
           <div className="postRegister_postContentWrapper__3BXZ6">
             <span className="postRegister_sequence__nC1Px">1</span>
@@ -17,7 +94,8 @@ export default function page() {
                 <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" className="css-7pg0cj-a11yText"></span>
                 <div className="select__control css-1iewm1a-control">
                   <div className="select__value-container css-1hwfws3">
-                    <div className="select__placeholder css-1wa3eu0-placeholder">스터디/프로젝트</div>
+                    <div className="select__placeholder css-1wa3eu0-placeholder"><IndexPage/></div>
+                    
                     <div className="css-1g6gooi">
                       <div style={{ display: 'inline-block;' }}>
                         <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-4-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style={{ boxSizing: 'content-box', width: '2px', background: '0px center', border: '0px', fontSize: 'inherit', opacity: '1', outline: '0px', padding: '0px', color: 'inherit;' }} />
@@ -200,6 +278,20 @@ export default function page() {
           </ul>
         </section>
 
+        <section>
+          <div className="postRegister_postContentWrapper__3BXZ6">
+            <span className="postRegister_sequence__nC1Px">2</span>
+            <h2 className="postRegister_text__17jg3">프로젝트에 대해 소개해 주세요.</h2>
+          </div>
+
+          <label className="input_labelText__3R2TI" for="input">제목</label>
+          <input className="input_customInput__1e1Il" id="input" placeholder="글 제목을 입력해주세요!" value=""></input>
+          <QuillWrapper style={{ height: '500px' }} modules={modules} formats={formats} theme="snow" />
+        </section>
+        <section className="writebutton_buttons__2qW83">
+          <button className="writebutton_cancelButton__2W7b_">취소</button>
+          <button className="writebutton_registerButton__n_O2M">글 등록</button>
+        </section>
       </div>
 
     </div>
