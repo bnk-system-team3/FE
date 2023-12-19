@@ -2079,3 +2079,157 @@
   color: rgb(194, 198, 207);
   cursor: pointer;
 }
+
+.loginModal_modalContent__zBWTK{
+  box-sizing: inherit;
+  font-family: inherit;
+  background: #fff;
+  height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0 0 8px 8px;
+}
+
+.socialLogin_loginTitle__30mGE{
+  box-sizing: inherit;
+  font-family: inherit;
+  margin: 20px 0;
+}
+
+.socialLogin_descriptionMobile__1_TMi{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: none;
+}
+
+.socialLogin_loginWrapper__3Niwt{
+  box-sizing: inherit;
+  font-family: inherit;
+  margin-top: 4rem;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.googleButton_buttonWrapper__1kPf3{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.googleButton_button__3G4DT{
+  box-sizing: inherit;
+  font-family: inherit;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  transition: all .125s ease-in 0s;
+  color: #fff;
+  box-shadow: 0 5px 25px rgba(0,0,0,.15);
+}
+
+.googleButton_loginDescription__1MrCF{
+  box-sizing: inherit;
+  font-family: inherit;
+  margin: 0;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 126.5%;
+  text-align: center;
+  letter-spacing: -.005em;
+  color: #565656;
+}
+
+.githubButton_buttonWrapper__5pwEe{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.githubButton_button__Fhoyv{
+  box-sizing: inherit;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 10px;
+  outline: none;
+  transition: all .125s ease-in 0s;
+  color: #fff;
+  background-color: #272e33;
+  box-shadow: 0 5px 25px rgba(0,0,0,.15);
+}
+
+.githubButton_loginDescription__3cZtC{
+  box-sizing: inherit;
+  font-family: inherit;
+  margin: 0;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 126.5%;
+  text-align: center;
+  letter-spacing: -.005em;
+  color: #565656;
+}
+
+
+.kakaoButton_buttonWrapper__2BAZP{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.kakaoButton_button__1pfrz{
+  box-sizing: inherit;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  transition: all .125s ease-in 0s;
+  color: #fff;
+  box-shadow: 0 5px 25px rgba(0,0,0,.15);
+  background-color: #fae100;
+}
+
+.kakaoButton_loginDescription__P1TjV{
+  box-sizing: inherit;
+  font-family: inherit;
+  margin: 0;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 126.5%;
+  text-align: center;
+  letter-spacing: -.005em;
+  color: #565656;
+}
+
+.githubButton_button__Fhoyv a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
