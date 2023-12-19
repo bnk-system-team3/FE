@@ -23,11 +23,11 @@
   padding: 0px 15px;
   margin: 100px auto 60px;
 }
-/* .css-uf1ume {
+.css-uf1ume {
   display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
-} */
+}
 
 .css-9qa72f {
   color: rgb(0, 0, 0);
@@ -1089,4 +1089,993 @@
   box-sizing: inherit;
   font-family: inherit;
   color: #333;
+}
+
+.contactPoint_contactWrapper__2T_GC{
+  list-style: none;
+  font-weight: 700;
+  font-size: 20px;
+  box-sizing: inherit;
+  font-family: inherit;
+  position: absolute;
+  left: 114px;
+  background: #f2f4f8;
+  border-radius: 10px;
+  color: #4a5e75;
+}
+
+
+.contactPoint_link__2MqRR{
+  list-style: none;
+  font-weight: 700;
+  box-sizing: inherit;
+  font-family: inherit;
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  grid-gap: 8px;
+  gap: 8px;
+  font-size: 14px;
+  padding: 4px 8px;
+  text-decoration-line: underline;
+  text-decoration-color: #4a5e75;
+}
+
+.contactPoint_linkImg__2_927{
+  list-style: none;
+  font-weight: 700;
+  color: inherit;
+  font-size: 14px;
+  box-sizing: inherit;
+  font-family: inherit;
+  width: 16px;
+  height: 16px;
+}
+
+
+.studyInfo_remains__1QGLr{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  margin-top: 24px;
+}
+
+.studyInfo_contentWrapper__KkSUP{
+  box-sizing: inherit;
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: relative;
+  align-items: center;
+  font-weight: 700;
+  font-size: 20px;
+  flex: 1 1;
+}
+
+.studyInfo_title__3jXRE{
+  font-weight: 700;
+  font-size: 20px;
+  box-sizing: inherit;
+  font-family: inherit;
+  color: #717171;
+  margin-right: 36px;
+}
+
+.studyInfo_languageList__1usTa{
+  font-weight: 700;
+  font-size: 20px;
+  box-sizing: inherit;
+  font-family: inherit;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  grid-gap: 12px;
+  gap: 12px;
+}
+
+.studyInfo_positions__3JIxy{
+  list-style: none;
+  box-sizing: inherit;
+  font-family: inherit;
+  margin: 0;
+  padding: 6px 10px;
+  background: #f2f4f8;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: #4a5e75;
+}
+
+.studyInfo_language__3A3Vi{
+  font-weight: 700;
+  font-size: 20px;
+  list-style: none;
+  box-sizing: inherit;
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+}
+
+.studyInfo_languageImage__2b-u9{
+  font-weight: 700;
+  font-size: 20px;
+  list-style: none;
+  box-sizing: inherit;
+  font-family: inherit;
+  width: 36px;
+  height: 36px;
+}
+
+.studyContent_postContentWrapper__187Zh{
+  box-sizing: inherit;
+  font-family: inherit;
+  margin-top: 132px;
+  font-size: 1.125rem;
+  word-break: break-all;
+  line-height: 1.7;
+  letter-spacing: -.004em;
+}
+
+
+.studyContent_postInfo__3zpYu{
+  word-break: break-all;
+  line-height: 1.7;
+  letter-spacing: -.004em;
+  box-sizing: inherit;
+  font-family: inherit;
+  margin: 0;
+  color: #333;
+  font-size: 26px;
+  font-weight: 700;
+  padding-bottom: 24px;
+  border-bottom: 3px solid #f2f2f2;
+}
+
+.studyContent_postContent__2c-FO{
+  font-size: 1.125rem;
+  word-break: break-all;
+  line-height: 1.7;
+  letter-spacing: -.004em;
+  box-sizing: inherit;
+  font-family: inherit;
+  width: 100%;
+  margin: 40px auto 0;
+}
+
+.sc-hHEiqL{
+  box-sizing: inherit;
+  font-family: inherit;
+  margin-top: 20px;
+  display: flex;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 10px;
+  height: 20px;
+}
+
+.sc-kfYoZR{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 5px;
+}
+
+
+.sc-bCwfaz{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: block;
+  width: 20px;
+  height: auto;
+}
+
+.sc-iwajpm{
+  box-sizing: inherit;
+  font-family: inherit;
+  color: rgb(153, 153, 153);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sc-dlMDgC{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.sc-fKgJPI{
+  cursor: pointer;
+  box-sizing: inherit;
+  font-family: inherit;
+  display: block;
+  width: 20px;
+  height: auto;
+}
+
+
+.sc-iwajpm{
+  cursor: pointer;
+  box-sizing: inherit;
+  font-family: inherit;
+  color: rgb(153, 153, 153);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.commentInput_commentInput__39H41{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 100px;
+}
+
+.commentInput_comment__Retbz{
+  box-sizing: inherit;
+  font-family: inherit;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.commentInput_commentCount__2dHvH{
+  box-sizing: inherit;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: #939393;
+}
+
+.commentInput_inputContainer__2W4WS{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  grid-gap: 15px;
+  gap: 15px;
+}
+
+
+.commentInput_profile__26AuB{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: block;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+
+
+.commentInput_commentText__2er8t{
+  box-sizing: inherit;
+  font-size: 16px;
+  font-family: inherit;
+  padding: 1rem 1rem 1.5rem;
+  outline: none;
+  border: 2px solid #e1e1e1;
+  border-radius: 16px;
+  width: 100%;
+  min-height: 100px;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+.commentInput_buttonWrapper__2f_l9{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  justify-content: flex-end;
+  margin: 16px 0 24px;
+}
+
+.commentInput_buttonComplete__24z4R{
+  box-sizing: inherit;
+  font-family: inherit;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 24px;
+  height: 40px;
+  background: #333;
+  border-radius: 50px;
+  font-weight: 700;
+  color: #fff;
+  font-size: 16px;
+}
+
+
+.commentList_CommentList__30HUh{
+  box-sizing: inherit;
+  font-family: inherit;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.recommendPost_totalWrapper__MvKNa{
+  box-sizing: inherit;
+  font-family: inherit;
+  position: relative;
+}
+
+.recommendPost_recommendWrapper__v-DsD{
+  box-sizing: inherit;
+  font-family: inherit;
+  position: absolute;
+  left: 100%;
+}
+
+.recommendPost_userInfoWrapper__2T6u8{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  margin-left: 2rem;
+  position: fixed;
+  top: 350px;
+}
+
+.recommendPost_bar__3GKlv{
+  box-sizing: inherit;
+  font-family: inherit;
+  width: 0;
+  height: 2.5rem;
+  border: 2px solid #4482f7;
+  background-color: #4482f7;
+}
+
+.recommendPost_userInfo__1Ozvo{
+  box-sizing: inherit;
+  font-family: inherit;
+  margin-left: .5rem;
+}
+
+.recommendPost_userName__2gZg6{
+  box-sizing: inherit;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.recommendPost_listWrapper__1Ix8x{
+  box-sizing: inherit;
+  font-family: inherit;
+  list-style: none;
+  margin: 0;
+  width: 240px;
+  margin-left: 2rem;
+  padding: 1rem .75rem;
+  line-height: 1.5;
+  font-size: .875rem;
+  max-height: calc(100vh - 128px);
+  overflow: hidden auto;
+  border: 2px solid #e2e2e2;
+  border-radius: 1rem;
+  margin-top: 1.5rem;
+  position: fixed;
+  top: 400px;
+}
+
+.recommendPost_postList__S6Av-{
+  list-style: none;
+  line-height: 1.5;
+  font-size: .875rem;
+  box-sizing: inherit;
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  margin-top: .4rem;
+  cursor: pointer;
+}
+
+.recommendPost_index__2o2jf{
+  list-style: none;
+  line-height: 1.5;
+  font-size: .875rem;
+  cursor: pointer;
+  box-sizing: inherit;
+  font-family: inherit;
+  color: #4b9ef4;
+  margin-right: .25rem;
+}
+
+.recommendPost_title__38iq9{
+  list-style: none;
+  line-height: 1.5;
+  font-size: .875rem;
+  cursor: pointer;
+  box-sizing: inherit;
+  font-family: inherit;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.css-gq3aoy{
+  box-sizing: inherit;
+  font-family: inherit;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 16px;
+  margin: 0px auto;
+}
+.style_imageContainer__3wrgm{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.style_profileContainer__1ej4M{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+}
+
+.style_userImg__1ujTt{
+  cursor: pointer;
+  box-sizing: inherit;
+  font-family: inherit;
+  display: block;
+  height: 150px;
+  width: 150px;
+  border: 1px solid #e1e1e1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.style_profileEditBtn__3NSbU{
+  cursor: pointer;
+  box-sizing: inherit;
+  font-family: inherit;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+}
+
+.css-nkt5tk{
+  box-sizing: inherit;
+  font-family: inherit;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: -0.78px;
+  margin: 30px 0px 40px;
+}
+
+.css-1cw2qsn{
+  box-sizing: inherit;
+  font-family: inherit;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.css-17yaykr{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.css-1n7wtqw{
+  box-sizing: inherit;
+  font-family: inherit;
+  color: rgb(51, 51, 51);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.28px;
+}
+
+.css-1xtz61h{
+  box-sizing: inherit;
+  font-family: inherit;
+  color: rgb(234, 114, 111);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.28px;
+}
+
+.css-1ltmxea{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  width: 100%;
+  font-size: 16px;
+  min-height: 50px;
+  padding: 15px 13px;
+  align-items: flex-start;
+  border-radius: 5px;
+  border: 1px solid rgb(225, 226, 227);
+}
+
+.css-2b097c-container{
+  font-family: inherit;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.css-7pg0cj-a11yText{
+  box-sizing: inherit;
+  font-family: inherit;
+  z-index: 9999;
+  border: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  overflow: hidden;
+  padding: 0px;
+  white-space: nowrap;
+}
+
+.css-1r0k60i-control{
+  font-family: inherit;
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(204, 204, 204);
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: default;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  min-height: 48px;
+  position: relative;
+  transition: all 100ms ease 0s;
+  box-sizing: border-box;
+  max-width: 500px;
+  width: 100%;
+  outline: 0px !important;
+}
+
+.css-1hwfws3{
+  cursor: default;
+  font-family: inherit;
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  flex: 1 1 0%;
+  flex-wrap: wrap;
+  padding: 2px 8px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.css-1uccc91-singleValue{
+  cursor: default;
+  font-family: inherit;
+  color: rgb(51, 51, 51);
+  margin-left: 2px;
+  margin-right: 2px;
+  max-width: calc(100% - 8px);
+  overflow: hidden;
+  position: absolute;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  top: 50%;
+  transform: translateY(-50%);
+  box-sizing: border-box;
+}
+
+.css-1g6gooi{
+  cursor: default;
+  font-family: inherit;
+  margin: 2px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  visibility: visible;
+  color: rgb(51, 51, 51);
+  box-sizing: border-box;
+}
+
+.css-1wy0on6{
+  cursor: default;
+  font-family: inherit;
+  -webkit-box-align: center;
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.css-43ykx9-indicatorSeparator{
+  cursor: default;
+  font-family: inherit;
+  align-self: stretch;
+  background-color: rgb(204, 204, 204);
+  margin-bottom: 8px;
+  margin-top: 8px;
+  width: 1px;
+  box-sizing: border-box;
+  display: none;
+}
+
+.css-tlfecz-indicatorContainer{
+  cursor: default;
+  font-family: inherit;
+  color: rgb(204, 204, 204);
+  display: flex;
+  padding: 8px;
+  transition: color 150ms ease 0s;
+  box-sizing: border-box;
+}
+
+.css-8mmkcg{
+  cursor: default;
+  color: rgb(204, 204, 204);
+  height: 20;
+  width: 20;
+  box-sizing: inherit;
+  font-family: inherit;
+  display: inline-block;
+  fill: currentcolor;
+  line-height: 1;
+  stroke: currentcolor;
+  stroke-width: 0; 
+}
+
+.css-10oczdc{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  gap: 8px;
+}
+
+.css-5i79t4{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  gap: 4px;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.css-owsb5s{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 50%;
+}
+
+.css-1gymfq1{
+  box-sizing: inherit;
+  font-family: inherit;
+  color: rgb(136, 136, 136);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.42px;
+}
+
+.css-5i79t4{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  gap: 4px;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.css-1yi8y74{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.css-1gymfq1{
+  box-sizing: inherit;
+  font-family: inherit;
+  color: rgb(136, 136, 136);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.42px;
+}
+
+.css-1ltmxea{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  width: 100%;
+  font-size: 16px;
+  min-height: 50px;
+  padding: 15px 13px;
+  align-items: flex-start;
+  border-radius: 5px;
+  border: 1px solid rgb(225, 226, 227);
+}
+
+.css-1ogq275{
+  box-sizing: inherit;
+  font-family: inherit;
+  height: 100px;
+  width: 100%;
+  padding: 15px 13px;
+  border-radius: 5px;
+  border: 1px solid rgb(225, 226, 227);
+  resize: none;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.css-7pg0cj-a11yText{
+  box-sizing: inherit;
+  font-family: inherit;
+  z-index: 9999;
+  border: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  overflow: hidden;
+  padding: 0px;
+  white-space: nowrap;
+}
+.css-1r0k60i-control{
+  font-family: inherit;
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(204, 204, 204);
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: default;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  min-height: 48px;
+  position: relative;
+  transition: all 100ms ease 0s;
+  box-sizing: border-box;
+  max-width: 500px;
+  width: 100%;
+  outline: 0px !important;
+}
+
+.css-1hwfws3{
+  cursor: default;
+  font-family: inherit;
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  flex: 1 1 0%;
+  flex-wrap: wrap;
+  padding: 2px 8px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.css-1rhbuit-multiValue{
+  cursor: default;
+  font-family: inherit;
+  background-color: rgb(230, 230, 230);
+  border-radius: 2px;
+  display: flex;
+  margin: 2px;
+  min-width: 0px;
+  box-sizing: border-box;
+}
+
+.css-12jo7m5{
+  cursor: default;
+  font-family: inherit;
+  border-radius: 2px;
+  color: rgb(51, 51, 51);
+  font-size: 85%;
+  overflow: hidden;
+  padding: 3px 3px 3px 6px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.css-xb97g8{
+  cursor: default;
+  font-family: inherit;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 2px;
+  display: flex;
+  padding-left: 4px;
+  padding-right: 4px;
+  box-sizing: border-box;
+}
+
+.css-8mmkcg{
+  cursor: default;
+  height: 14;
+  width: 14;
+  box-sizing: inherit;
+  font-family: inherit;
+  display: inline-block;
+  fill: currentcolor;
+  line-height: 1;
+  stroke: currentcolor;
+  stroke-width: 0;
+}
+
+.css-1g6gooi{
+  cursor: default;
+  font-family: inherit;
+  margin: 2px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  visibility: visible;
+  color: rgb(51, 51, 51);
+  box-sizing: border-box;
+}
+
+.css-tlfecz-indicatorContainer{
+  cursor: default;
+  font-family: inherit;
+  color: rgb(204, 204, 204);
+  display: flex;
+  padding: 8px;
+  transition: color 150ms ease 0s;
+  box-sizing: border-box;
+}
+
+.css-8mmkcg{
+  cursor: default;
+  color: rgb(204, 204, 204);
+  height: 20;
+  width: 20;
+  box-sizing: inherit;
+  font-family: inherit;
+  display: inline-block;
+  fill: currentcolor;
+  line-height: 1;
+  stroke: currentcolor;
+  stroke-width: 0;
+}
+.css-43ykx9-indicatorSeparator{
+  cursor: default;
+  font-family: inherit;
+  align-self: stretch;
+  background-color: rgb(204, 204, 204);
+  margin-bottom: 8px;
+  margin-top: 8px;
+  width: 1px;
+  box-sizing: border-box;
+  display: none;
+}
+
+.css-tlfecz-indicatorContainer{
+  cursor: default;
+  font-family: inherit;
+  color: rgb(204, 204, 204);
+  display: flex;
+  padding: 8px;
+  transition: color 150ms ease 0s;
+  box-sizing: border-box;
+}
+
+.css-8mmkcg{
+  cursor: default;
+  color: rgb(204, 204, 204);
+  height: 20;
+  width: 20;
+  box-sizing: inherit;
+  font-family: inherit;
+  display: inline-block;
+  fill: currentcolor;
+  line-height: 1;
+  stroke: currentcolor;
+  stroke-width: 0;
+}
+
+.css-curg5w{
+  box-sizing: inherit;
+  font-family: inherit;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.css-1ak5h4d{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  color: rgb(136, 136, 136);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.css-ndq9l2{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.css-u7euz2{
+  box-sizing: inherit;
+  font-family: inherit;
+  outline: none;
+  height: 48px;
+  width: 100%;
+  border-radius: 30px;
+  background: rgb(110, 209, 192);
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.28px;
+  border: none;
+  cursor: pointer;
+}
+
+.css-12jw1xy{
+  box-sizing: inherit;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: rgb(194, 198, 207);
+  cursor: pointer;
 }

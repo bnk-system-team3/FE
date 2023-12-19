@@ -8,8 +8,9 @@ export default function Header() {
     <div>
       <Navbar>
       <NavbarBrand>
-        {/* <AcmeLogo /> */}
-        <p className="font-bold text-inherit">ACME</p>
+        <Link href='/'>
+        <img src="/images/bnk.png" alt="logo" className="w-10 h-10" />
+        </Link>
       </NavbarBrand>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
@@ -34,23 +35,18 @@ export default function Header() {
               color="secondary"
               name="Jason Hughes"
               size="sm"
-              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              src="/images/bnk.png"
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
             <DropdownItem key="profile" className="h-14 gap-2">
               <p className="font-semibold">Signed in as</p>
-              <p className="font-semibold">zoey@example.com</p>
+              <p className="font-semibold">abc@bnksystem.com</p>
             </DropdownItem>
-            <DropdownItem key="settings">My Settings</DropdownItem>
-            <DropdownItem key="team_settings">Team Settings</DropdownItem>
-            <DropdownItem key="analytics">Analytics</DropdownItem>
-            <DropdownItem key="system">System</DropdownItem>
-            <DropdownItem key="configurations">Configurations</DropdownItem>
-            <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
-            <DropdownItem key="logout" color="danger">
-              Log Out
-            </DropdownItem>
+            <DropdownItem key="settings">내 프로필</DropdownItem>
+            <DropdownItem key="team_settings">모임 목록</DropdownItem>
+            <DropdownItem key="analytics">설정</DropdownItem>
+            <DropdownItem key="logout" color="danger">로그아웃</DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </NavbarContent>
