@@ -15,7 +15,11 @@
     "react": "^18",
     "react-dom": "^18",
     "react-quill": "^2.0.0",
+<<<<<<< HEAD
     "react-select": "^5.8.0"
+=======
+    "swiper": "^11.0.5"
+>>>>>>> 20e98118f092da3b66fda808f0358bb26cbf4cb2
   },
   "devDependencies": {
     "@types/node": "^20",
