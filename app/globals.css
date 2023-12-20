@@ -792,6 +792,11 @@
   grid-gap: 8px;
   gap: 8px;
   list-style: none;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .studyItem_language__20yqw{
@@ -1395,7 +1400,7 @@
   font-family: inherit;
   display: flex;
   justify-content: flex-end;
-  margin: 16px 0 24px;
+  margin: 0px 0 0px;
 }
 
 .commentInput_buttonComplete__24z4R{
@@ -2256,3 +2261,110 @@
 }
 
 
+.myLikes_category__item__1JQqg{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #343a40;
+}
+
+.myLikes_text__1h2T0{
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #343a40;
+  box-sizing: inherit;
+  font-family: inherit;
+  margin-left: .5rem;
+}
+
+.studyList_studyList__3xoyss{
+  box-sizing: inherit;
+  font-family: inherit;
+  list-style: none;
+  display: flex;
+  grid-gap: 27px;
+  gap: 27px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 670px;
+}
+
+.sc-fnVZcZ{
+  box-sizing: inherit;
+  font-family: inherit;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 8px;
+  position: fixed;
+  bottom: 0px;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  width: 100%;
+  z-index: 3;
+  background-color: white;
+  border-top: 1px solid rgb(242, 242, 242);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 10px);
+}
+
+.sc-fFSPTT{
+  box-sizing: inherit;
+  font-family: inherit;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  flex: 1 1 0%;
+  height: 44px;
+  background: rgb(110, 209, 192);
+  border-radius: 50px;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.sc-bkbkJK{
+  box-sizing: inherit;
+  font-family: inherit;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  flex: 1 1 0%;
+  height: 44px;
+  background: rgb(241, 241, 241);
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 17px;
+  color: rgb(133, 133, 133);
+}
+.sc-iemWCZ{
+  box-sizing: inherit;
+  font-family: inherit;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: rgb(241, 241, 241);
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sc-dIvrsQ{
+  cursor: pointer;
+  box-sizing: inherit;
+  font-family: inherit;
+  display: block;
+  width: 28px;
+  height: auto;
+  background: transparent;
+}

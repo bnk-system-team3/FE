@@ -25,7 +25,7 @@ export default function Home() {
               <div className="slick-track" style={{ width: '3120px', opacity: '1', transform: 'translate3d(0px, 0px, 0px)' }}>
                 <div data-index="0" className="slick-slide slick-active slick-current" aria-hidden="false" style={{ outline: 'none', width: '312px' }}>
                   <div>
-                    <a className="css-1ezgidp" href="/study/6573aecbc003f4001352c60b" style={{ width: '100%', display: 'inline-block' }}>
+                    <a className="css-1ezgidp" href="/meeting/detail/0" style={{ width: '100%', display: 'inline-block' }}>
                       <div className="css-oma2kw">
                         <div className="badge_badge__ZfNyB">
                           <div className="badge_study__39LDm">🗂 프로젝트</div>
@@ -33,7 +33,7 @@ export default function Home() {
                         <div className="css-4iipbq">🚨 마감 8일전</div>
                       </div>
                       <div className="css-3wobgm">마감일 | 2023.12.23</div>
-                      <h1 className="css-a6vgi6">리그오브레전드 관련 사이드 프로젝트 팀원모집합니다!</h1>
+                      <h1 className="css-a6vgi6">[UI/UX 디자이너] IT분야 종사자(기획자, 디자이너, 개발자)를 위한 커뮤니티 프로젝트 진행을 위한 디자이너님을 모집합니다!</h1>
                       <div className="css-1x6kfnp">👀 조회수 650회</div>
                     </a>
                   </div>
@@ -47,7 +47,7 @@ export default function Home() {
               <div className="slick-track" style={{ width: '3120px', opacity: '1', transform: 'translate3d(0px, 0px, 0px)' }}>
                 <div data-index="0" className="slick-slide slick-active slick-current" aria-hidden="false" style={{ outline: 'none', width: '312px' }}>
                   <div>
-                    <a className="css-1ezgidp" href="/study/6573aecbc003f4001352c60b" style={{ width: '100%', display: 'inline-block' }}>
+                    <a className="css-1ezgidp" href="/meeting/detail/0" style={{ width: '100%', display: 'inline-block' }}>
                       <div className="css-oma2kw">
                         <div className="badge_badge__ZfNyB">
                           <div className="badge_study__39LDm">🗂 프로젝트</div>
@@ -55,7 +55,7 @@ export default function Home() {
                         <div className="css-4iipbq">🚨 마감 8일전</div>
                       </div>
                       <div className="css-3wobgm">마감일 | 2023.12.23</div>
-                      <h1 className="css-a6vgi6">리그오브레전드 관련 사이드 프로젝트 팀원모집합니다!</h1>
+                      <h1 className="css-a6vgi6">[프론트] - 새로운 트렌디한 마켓플레이스 제작 팀원 모집</h1>
                       <div className="css-1x6kfnp">👀 조회수 650회</div>
                     </a>
                   </div>
