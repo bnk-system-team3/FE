@@ -1,86 +1,187 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import 'react-quill/dist/quill.snow.css';
 import dynamic from 'next/dynamic';
 import ComboBox from '@/components/comboBox/ComboBox.jsx';
+import Calendar from 'rc-calendar';
+import 'rc-calendar/assets/index.css';
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
+export default function page() {
 
-const options = [
-  { value: 'study', label: '스터디' },
-  { value: 'project', label: '프로젝트' },
-];
+  const [kind, setKind] = useState(0);
+  const [people, setPeople] = useState("");
+  const [method, setMethod] = useState(0);
+  const [period, setPeriod] = useState(0);
+  const [skill, setSkill] = useState("");
+  const [deadline, setDeadline] = useState(0);
+  const [position, setPosition] = useState("");
+  const [openchat, setOpenchat] = useState("");
 
-const IndexPage = (options) => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  const skills= ['C', 'C++', 'C#', 'Java', 'JavaScript', 'Python', 'Spring', 'MySQL', 'MSSQL', 'Next.js', 'React', 'TypeScript', 'Vue', 'Node.js', 'Nest.js', 'Express', 'Go', 'Django', 'Swift', 'Kotlin', 'MongoDB', 'PHP', 'GraphQL', 'FireBase', 'ReactNative', 'Unity', 'Flutter', 'AWS', 'Kubernetes', 'Docker', 'Git', 'Figma', 'Zeplin'];
+  const positions = ['프론트앤드', '백앤드', '디자이너', 'IOS', '안드로이드', '데브옵스', 'PM', '기획자'];
 
-  const handleSelectChange = (option) => {
-    setSelectedOption(option);
+  // 두 배열을 합쳐서 새로운 배열을 만듭니다.
+  const positionOptions = [ ...positions.map((position, index) => ({ value: `${index + 5}`, label: position }))];
+  const skillOptions = [ ...skills.map((skill, index) => ({ value: `${index + 5}`, label: skill }))];
+  
+  const register = async () => {
+    try {
+      const response = await axios.post('/board/save', {
+        inquirynm: title,
+        inquirycntn: content,
+      }
+    );
+    console.log(response)
+    } catch (error) {
+        alert("에러");
+      
+    }
   };
 
-  return (
-    <div>
-      <label>모집 구분</label>
-      <ComboBox
-        options={options}
-        onChange={handleSelectChange}
-        value={selectedOption}
+  const CalendarButton = () => {
+    const [selectedDate, setSelectedDate] = useState(null);
+
+    const handleDateChange = (date) => {
+      handleSet(date);
+      setSelectedDate(date);
+    };
+
+    const handleSet = ({date}) => {
+      setDeadline(date);
+    }
+
+    return (
+      <div style={{width: '500px'}}>
+        <div>
+        <label>모집마감일</label>
+        <DatePicker
+        className="datePicker"
+        selected={selectedDate}
+        onChange={handleDateChange}
+        dateFormat="yyyy-MM-dd"
+        // 그 외 필요한 옵션들...
       />
-      {selectedOption && (
-        <p>선택된 옵션: {selectedOption.label}</p>
-      )}
-    </div>
-  );
-};
+      
+      <button className="css-slyssw" tabindex="0" aria-label="Choose date, selected date is Dec 29, 2023">
+            <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CalendarIcon">
+              <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"></path>
+            </svg>
+            <span class="MuiTouchRipple-root css-w0pj6f"></span>
+          </button>
+        </div>
+      </div>
+    );
+  };
 
-const QuillWrapper = dynamic(() => import('react-quill'), {
-  ssr: false,
-  loading: () => <p>Loading ...</p>,
-})
+  const InputBox = ({ label, onChange, value }) => {
+   
+    return (
+      <div>
+        <label>{label}</label>
+        <input
+          onChange={onChange}
+          value={value}
+          type="text"
+          placeholder="입력하세요"
+          style={{
+            width: '500px',
+            height: '38px',
+            fontSize: '15px',
+            border: '1px solid #ccc', // 테두리 스타일 추가
+            borderRadius: '4px', // 테두리 모서리를 둥글게 만듭니다.
+            padding: '8px', // 텍스트와 테두리 사이의 여백을 추가합니다.
+          }} />
+      </div>
+    );
+  }
 
-const modules = {
-  toolbar: [
-    [{ header: '1' }, { header: '2' }, { font: [] }],
-    [{ size: [] }],
-    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-    [
-      { list: 'ordered' },
-      { list: 'bullet' },
-      { indent: '-1' },
-      { indent: '+1' },
-    ],
-    ['link', 'image', 'video'],
-    ['clean'],
-  ],
-  clipboard: {
-    // toggle to add extra line breaks when pasting HTML:
-    matchVisual: false,
-  },
+  useEffect(() => {
+    console.log(method); // 업데이트된 method 값 출력
+  }, [method]); // method 값이 업데이트될 때만 useEffect 실행
+
+const handleSet = ({label, option}) => {
+  if(label === "진행방식"){
+    setMethod(option.value);
+  }else if(label === "기술스택"){
+    setSkill(option.label);
+  }else if(label === "모집포지션"){
+    setPosition(option.label);
+  }
 }
-/*
- * Quill editor formats
- * See https://quilljs.com/docs/formats/
- */
-const formats = [
-  'header',
-  'font',
-  'size',
-  'bold',
-  'italic',
-  'underline',
-  'strike',
-  'blockquote',
-  'list',
-  'bullet',
-  'indent',
-  'link',
-  'image',
-  'video',
-]
-export default function page() {
+
+  const IndexPage = ({ label, options }) => {
+    const [selectedOption, setSelectedOption] = useState(null);
+    const handleSelectChange = (option) => {
+      handleSet(label, option);
+      setSelectedOption(option);
+      
+      debugger
+      console.log(option)
+    };
+
+    return (
+      <div>
+        <label>{label}</label>
+        <ComboBox
+          options={options}
+          onChange={handleSelectChange}
+          value={selectedOption}
+        />
+      </div>
+    );
+  };
+
+  const QuillWrapper = dynamic(() => import('react-quill'), {
+    ssr: false,
+    loading: () => <p>Loading ...</p>,
+  })
+
+  const modules = {
+    toolbar: [
+      [{ header: '1' }, { header: '2' }, { font: [] }],
+      [{ size: [] }],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [
+        { list: 'ordered' },
+        { list: 'bullet' },
+        { indent: '-1' },
+        { indent: '+1' },
+      ],
+      ['link', 'image', 'video'],
+      ['clean'],
+    ],
+    clipboard: {
+      // toggle to add extra line breaks when pasting HTML:
+      matchVisual: false,
+    },
+  }
+
+  const formats = [
+    'header',
+    'font',
+    'size',
+    'bold',
+    'italic',
+    'underline',
+    'strike',
+    'blockquote',
+    'list',
+    'bullet',
+    'indent',
+    'link',
+    'image',
+    'video',
+  ]
+
+  useEffect(() => {
+    console.log(skillOptions);
+  }, []);
+
   return (
     <div>
-      
       <div className="postRegister_postWrapper__1s7mv">
         <section>
           <div className="postRegister_postContentWrapper__3BXZ6">
@@ -89,191 +190,66 @@ export default function page() {
           </div>
           <ul className="postinfo_inputList__3SKF-">
             <li className="postinfo_listItem__OFhXr">
-              <label className="selectbox_labelText__3Q9iz" for="onoffline">모집 구분</label>
-              <div className=" css-2b097c-container">
-                <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" className="css-7pg0cj-a11yText"></span>
-                <div className="select__control css-1iewm1a-control">
-                  <div className="select__value-container css-1hwfws3">
-                    <div className="select__placeholder css-1wa3eu0-placeholder"><IndexPage/></div>
-                    
-                    <div className="css-1g6gooi">
-                      <div style={{ display: 'inline-block;' }}>
-                        <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-4-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style={{ boxSizing: 'content-box', width: '2px', background: '0px center', border: '0px', fontSize: 'inherit', opacity: '1', outline: '0px', padding: '0px', color: 'inherit;' }} />
-                        <div style={{ position: 'absolute', top: '0px', left: '0px', visibility: 'hidden', height: '0px', overflow: 'scroll', whiteSpace: 'pre', fontSize: '16px', fontFamily: '&quot;Spoqa Han Sans Neo&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif;', fontWeight: '400', fontStyle: 'normal', letterSpacing: 'normal', textTransform: 'none' }}></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="select__indicators css-1wy0on6">
-                    <span className="select__indicator-separator css-1okebmr-indicatorSeparator"></span>
-                    <div className="select__indicator select__dropdown-indicator css-tlfecz-indicatorContainer" aria-hidden="true">
-                      <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" className="css-8mmkcg">
-                        <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path></svg></div></div></div>
-              </div>
+              <IndexPage
+                label="모집구분"
+                options={[
+                  { value: 'study', label: '스터디' },
+                  { value: 'project', label: '프로젝트' },
+                ]} />
             </li>
             <li className="postinfo_listItem__OFhXr">
-              <label className="selectbox_labelText__3Q9iz" for="onoffline">모집 인원</label>
-              <div className=" css-2b097c-container">
-                <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" className="css-7pg0cj-a11yText"></span>
-                <div className="select__control css-1iewm1a-control"><div className="select__value-container css-1hwfws3">
-                  <div className="select__placeholder css-1wa3eu0-placeholder">인원 미정~10명 이상</div>
-                  <div className="css-1g6gooi">
-                    <div style={{ display: 'inline-block' }}>
-                      <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-5-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style={{ boxSizing: 'content-box', width: '2px', background: '0px center', border: '0px', fontSize: 'inherit', opacity: '1', outline: '0px', padding: '0px', color: 'inherit' }} /><div style={{ position: 'absolute', top: '0px', left: '0px', visibility: 'hidden', height: '0px', overflow: 'scroll', whiteSpace: 'pre', fontSize: '16px', fontFamily: '&quot;Spoqa Han Sans Neo&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif;', fontWeight: '400', fontStyle: 'normal', letterSpacing: 'normal', textTransform: 'none' }}></div>
-                      <div style={{ position: 'absolute', top: '0px', left: '0px', visibility: 'hidden', height: '0px', overflow: 'scroll', whiteSpace: 'pre', fontSize: '16px', fontFamily: '&quot;Spoqa Han Sans Neo&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif;', fontWeight: '400', fontStyle: 'normal', letterSpacing: 'normal', textTransform: 'none' }}></div>
-                    </div>
-                  </div>
-                </div>
-                  <div className="select__indicators css-1wy0on6">
-                    <span className="select__indicator-separator css-1okebmr-indicatorSeparator"></span>
-                    <div className="select__indicator select__dropdown-indicator css-tlfecz-indicatorContainer" aria-hidden="true">
-                      <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" className="css-8mmkcg">
-                        <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <input name="onoffline" type="hidden" value="" />
-              </div>
+              <InputBox
+                label="모집인원"
+                onChange={(e) => setPeople(e.target.value)}
+                value={people}
+              />
             </li>
           </ul>
           <ul className="postinfo_inputList__3SKF-">
             <li className="postinfo_listItem__OFhXr">
-              <label className="selectbox_labelText__3Q9iz" for="onoffline">모집 구분</label>
-              <div className=" css-2b097c-container">
-                <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" className="css-7pg0cj-a11yText"></span>
-                <div className="select__control css-1iewm1a-control">
-                  <div className="select__value-container css-1hwfws3">
-                    <div className="select__placeholder css-1wa3eu0-placeholder">스터디/프로젝트</div>
-                    <div className="css-1g6gooi">
-                      <div style={{ display: 'inline-block;' }}>
-                        <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-4-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style={{ boxSizing: 'content-box', width: '2px', background: '0px center', border: '0px', fontSize: 'inherit', opacity: '1', outline: '0px', padding: '0px', color: 'inherit;' }} />
-                        <div style={{ position: 'absolute', top: '0px', left: '0px', visibility: 'hidden', height: '0px', overflow: 'scroll', whiteSpace: 'pre', fontSize: '16px', fontFamily: '&quot;Spoqa Han Sans Neo&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif;', fontWeight: '400', fontStyle: 'normal', letterSpacing: 'normal', textTransform: 'none' }}></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="select__indicators css-1wy0on6">
-                    <span className="select__indicator-separator css-1okebmr-indicatorSeparator"></span>
-                    <div className="select__indicator select__dropdown-indicator css-tlfecz-indicatorContainer" aria-hidden="true">
-                      <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" className="css-8mmkcg">
-                        <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path></svg></div></div></div>
-              </div>
+              <IndexPage
+                label="진행방식"
+                options={[
+                  { value: '1', label: '온라인' },
+                  { value: '2', label: '오프라인' },
+                  { value: '3', label: '온/오프라인' },
+                  { value: '4', label: '미정' },
+                ]} />
             </li>
             <li className="postinfo_listItem__OFhXr">
-              <label className="selectbox_labelText__3Q9iz" for="onoffline">모집 인원</label>
-              <div className=" css-2b097c-container">
-                <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" className="css-7pg0cj-a11yText"></span>
-                <div className="select__control css-1iewm1a-control"><div className="select__value-container css-1hwfws3">
-                  <div className="select__placeholder css-1wa3eu0-placeholder">인원 미정~10명 이상</div>
-                  <div className="css-1g6gooi">
-                    <div style={{ display: 'inline-block' }}>
-                      <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-5-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style={{ boxSizing: 'content-box', width: '2px', background: '0px center', border: '0px', fontSize: 'inherit', opacity: '1', outline: '0px', padding: '0px', color: 'inherit' }} /><div style={{ position: 'absolute', top: '0px', left: '0px', visibility: 'hidden', height: '0px', overflow: 'scroll', whiteSpace: 'pre', fontSize: '16px', fontFamily: '&quot;Spoqa Han Sans Neo&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif;', fontWeight: '400', fontStyle: 'normal', letterSpacing: 'normal', textTransform: 'none' }}></div>
-                      <div style={{ position: 'absolute', top: '0px', left: '0px', visibility: 'hidden', height: '0px', overflow: 'scroll', whiteSpace: 'pre', fontSize: '16px', fontFamily: '&quot;Spoqa Han Sans Neo&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif;', fontWeight: '400', fontStyle: 'normal', letterSpacing: 'normal', textTransform: 'none' }}></div>
-                    </div>
-                  </div>
-                </div>
-                  <div className="select__indicators css-1wy0on6">
-                    <span className="select__indicator-separator css-1okebmr-indicatorSeparator"></span>
-                    <div className="select__indicator select__dropdown-indicator css-tlfecz-indicatorContainer" aria-hidden="true">
-                      <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" className="css-8mmkcg">
-                        <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <input name="onoffline" type="hidden" value="" />
-              </div>
+            <InputBox
+                label="진행기간"
+                onChange={(e) => setPeriod(e.target.value)}
+                value={period}
+              />
             </li>
           </ul>
           <ul className="postinfo_inputList__3SKF-">
             <li className="postinfo_listItem__OFhXr">
-              <label className="selectbox_labelText__3Q9iz" for="onoffline">모집 구분</label>
-              <div className=" css-2b097c-container">
-                <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" className="css-7pg0cj-a11yText"></span>
-                <div className="select__control css-1iewm1a-control">
-                  <div className="select__value-container css-1hwfws3">
-                    <div className="select__placeholder css-1wa3eu0-placeholder">스터디/프로젝트</div>
-                    <div className="css-1g6gooi">
-                      <div style={{ display: 'inline-block;' }}>
-                        <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-4-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style={{ boxSizing: 'content-box', width: '2px', background: '0px center', border: '0px', fontSize: 'inherit', opacity: '1', outline: '0px', padding: '0px', color: 'inherit;' }} />
-                        <div style={{ position: 'absolute', top: '0px', left: '0px', visibility: 'hidden', height: '0px', overflow: 'scroll', whiteSpace: 'pre', fontSize: '16px', fontFamily: '&quot;Spoqa Han Sans Neo&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif;', fontWeight: '400', fontStyle: 'normal', letterSpacing: 'normal', textTransform: 'none' }}></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="select__indicators css-1wy0on6">
-                    <span className="select__indicator-separator css-1okebmr-indicatorSeparator"></span>
-                    <div className="select__indicator select__dropdown-indicator css-tlfecz-indicatorContainer" aria-hidden="true">
-                      <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" className="css-8mmkcg">
-                        <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path></svg></div></div></div>
-              </div>
+            <IndexPage
+                label="기술스택"
+                options={skillOptions} />
+
             </li>
             <li className="postinfo_listItem__OFhXr">
-              <label className="selectbox_labelText__3Q9iz" for="onoffline">모집 인원</label>
-              <div className=" css-2b097c-container">
-                <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" className="css-7pg0cj-a11yText"></span>
-                <div className="select__control css-1iewm1a-control"><div className="select__value-container css-1hwfws3">
-                  <div className="select__placeholder css-1wa3eu0-placeholder">인원 미정~10명 이상</div>
-                  <div className="css-1g6gooi">
-                    <div style={{ display: 'inline-block' }}>
-                      <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-5-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style={{ boxSizing: 'content-box', width: '2px', background: '0px center', border: '0px', fontSize: 'inherit', opacity: '1', outline: '0px', padding: '0px', color: 'inherit' }} /><div style={{ position: 'absolute', top: '0px', left: '0px', visibility: 'hidden', height: '0px', overflow: 'scroll', whiteSpace: 'pre', fontSize: '16px', fontFamily: '&quot;Spoqa Han Sans Neo&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif;', fontWeight: '400', fontStyle: 'normal', letterSpacing: 'normal', textTransform: 'none' }}></div>
-                      <div style={{ position: 'absolute', top: '0px', left: '0px', visibility: 'hidden', height: '0px', overflow: 'scroll', whiteSpace: 'pre', fontSize: '16px', fontFamily: '&quot;Spoqa Han Sans Neo&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif;', fontWeight: '400', fontStyle: 'normal', letterSpacing: 'normal', textTransform: 'none' }}></div>
-                    </div>
-                  </div>
-                </div>
-                  <div className="select__indicators css-1wy0on6">
-                    <span className="select__indicator-separator css-1okebmr-indicatorSeparator"></span>
-                    <div className="select__indicator select__dropdown-indicator css-tlfecz-indicatorContainer" aria-hidden="true">
-                      <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" className="css-8mmkcg">
-                        <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <input name="onoffline" type="hidden" value="" />
-              </div>
+            
+              <CalendarButton/>
             </li>
           </ul>
           <ul className="postinfo_inputList__3SKF-">
             <li className="postinfo_listItem__OFhXr">
-              <label className="selectbox_labelText__3Q9iz" for="onoffline">모집 구분</label>
-              <div className=" css-2b097c-container">
-                <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" className="css-7pg0cj-a11yText"></span>
-                <div className="select__control css-1iewm1a-control">
-                  <div className="select__value-container css-1hwfws3">
-                    <div className="select__placeholder css-1wa3eu0-placeholder">스터디/프로젝트</div>
-                    <div className="css-1g6gooi">
-                      <div style={{ display: 'inline-block;' }}>
-                        <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-4-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style={{ boxSizing: 'content-box', width: '2px', background: '0px center', border: '0px', fontSize: 'inherit', opacity: '1', outline: '0px', padding: '0px', color: 'inherit;' }} />
-                        <div style={{ position: 'absolute', top: '0px', left: '0px', visibility: 'hidden', height: '0px', overflow: 'scroll', whiteSpace: 'pre', fontSize: '16px', fontFamily: '&quot;Spoqa Han Sans Neo&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif;', fontWeight: '400', fontStyle: 'normal', letterSpacing: 'normal', textTransform: 'none' }}></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="select__indicators css-1wy0on6">
-                    <span className="select__indicator-separator css-1okebmr-indicatorSeparator"></span>
-                    <div className="select__indicator select__dropdown-indicator css-tlfecz-indicatorContainer" aria-hidden="true">
-                      <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" className="css-8mmkcg">
-                        <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path></svg></div></div></div>
-              </div>
+            <IndexPage
+                label="모집포지션"
+                options=
+                  {positionOptions}
+                 />
             </li>
             <li className="postinfo_listItem__OFhXr">
-              <div className="datepicker_dateWrapper__3XHYP">
-                <div className="datepicker_datepickerWrapper__aUl1_">
-                  <div className="datepicker_labelText__3Swb3">모집 마감일</div>
-                  <div className="css-feqhe6">
-                    <div className="css-1bn53lx">
-                      <input aria-invalid="false" placeholder="yyyy-mm-dd" type="tel" className="css-1uvydh2" value="2023-12-29" id="mui-1" />
-                      <div className="css-1nvf7g0">
-                        <button className="css-slyssw" tabindex="0" type="button" aria-label="Choose date, selected date is Dec 29, 2023"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CalendarIcon"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"></path></svg><span class="MuiTouchRipple-root css-w0pj6f"></span>
-                        </button>
-                      </div>
-                      <fieldset aria-hidden="true" className="css-igs3ac">
-                        <legend class="css-hdw1oc">
-                          <span className="notranslate">​</span>
-                        </legend>
-                      </fieldset>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <InputBox
+                label="카카오톡 오픈채팅"
+                onChange={(e) => setOpenchat(e.target.value)}
+                value={openchat}
+              />
             </li>
           </ul>
         </section>
@@ -290,7 +266,7 @@ export default function page() {
         </section>
         <section className="writebutton_buttons__2qW83">
           <button className="writebutton_cancelButton__2W7b_">취소</button>
-          <button className="writebutton_registerButton__n_O2M">글 등록</button>
+          <button className="writebutton_registerButton__n_O2M" onClick={register}>글 등록</button>
         </section>
       </div>
 

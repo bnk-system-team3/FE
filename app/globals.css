@@ -1091,6 +1091,19 @@
   color: #333;
 }
 
+
+.datePicker {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 500px;
+  height: 38px;
+  text-align: center;
+  padding-right: 14px;
+}
+
 .contactPoint_contactWrapper__2T_GC{
   list-style: none;
   font-weight: 700;
@@ -2241,4 +2254,5 @@
   display: flex;
   margin-bottom: 2rem;
 }
+
 
