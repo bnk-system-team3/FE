@@ -27,30 +27,30 @@ export default function page() {
         ))}
         <div
           className="plus-box"
-           onClick={() => {
-             inpRef.current?.click();
-           }}
+          onClick={() => {
+            inpRef.current?.click();
+          }}
         >
           +
           <input
-             type="file"
-             ref={inpRef}
-           
-             onChange={(event) => {
-               if (event.currentTarget.files?.[0]) {
-                 console.log(event.currentTarget.files[0]);
-                 const file = event.currentTarget.files[0];
+            type="file"
+            ref={inpRef}
 
-                 const reader = new FileReader();
-                 reader.readAsDataURL(file);
-                 reader.onloadend = (event) => {
-                   setImageList((prev) => [
-                     ...prev,
-                     event.target?.result as string,
-                   ]);
-                 };
-               }
-             }}
+            onChange={(event) => {
+              if (event.currentTarget.files?.[0]) {
+                console.log(event.currentTarget.files[0]);
+                const file = event.currentTarget.files[0];
+
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onloadend = (event) => {
+                  setImageList((prev) => [
+                    ...prev,
+                    event.target?.result as string,
+                  ]);
+                };
+              }
+            }}
           />
         </div>
       </div>

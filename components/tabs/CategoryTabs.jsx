@@ -14,17 +14,21 @@ export default function CategoryTabs() {
 
   return (
     <div>
-      <div className="flex flex-wrap gap-4">
+      <div >
+
         {variants.map((variant) => (
           <Tabs key={variant} variant={variant} aria-label="Tabs variants">
             <Tab key="1" title="전체">
-
               {/* <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '50px' }}>
                     {Array.from({ length: 10 }, (_, index) => (
                       <MeetingTable key={index} />
                     ))}
                   </div> */}
-              <MeetingTable id={1} />
+              <Card>
+                <CardBody>
+                  <MeetingTable id={1} />
+                </CardBody>
+              </Card>
             </Tab>
             <Tab key="2" title="프로젝트">
               <MeetingTable id={2} />

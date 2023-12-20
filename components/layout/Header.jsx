@@ -28,7 +28,9 @@ export default function Header() {
           {/* <Link color="foreground" href="#">
             새 글 쓰기 dasd
           </Link> */}
+
           <NewMeeting />
+          
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
               <Avatar

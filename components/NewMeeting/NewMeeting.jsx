@@ -19,7 +19,6 @@ export default function NewMeeting() {
         renderContent={() => (
           <>
             <div class="loginModal_modalContent__zBWTK">
-
               <section class="socialLogin_loginWrapper__3Niwt">
                 <div>
                   <div class="googleButton_buttonWrapper__1kPf3">

@@ -1,12 +1,15 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import {useRouter} from 'next/navigation'
 
 export default function MeetingTable(props) {
 
   // console.log(props.id);
 
   const [projects, setProjects] = useState([]);
+
+  let router = useRouter()
 
   useEffect(() => {
     // 백엔드에서 프로젝트 데이터 가져오기
@@ -25,7 +28,7 @@ export default function MeetingTable(props) {
 
   return (
     <div>
-      <ul className="studyList_studyList__3xoys">
+      <ul>
         <div>
           <a className="studyItem_studyItem__1Iipn studyItem_open__1PGn-" href="/meeting/detail/0">
             <li>
@@ -57,8 +60,6 @@ export default function MeetingTable(props) {
                   </li>
                 )}
               </ul>
-
-
               <div className="studyItem_border__2zAjs">
               </div>
               <section className="studyItem_info__OFIQU">
