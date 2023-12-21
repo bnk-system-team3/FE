@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import {useRouter} from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 async function getData(id) {
   const res = await fetch(`https://moa-backend.duckdns.org/api/v1/meeting/${id}`)

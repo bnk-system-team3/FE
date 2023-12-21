@@ -1,13 +1,12 @@
 import React from 'react'
-import EditorHobbyPage from '@/components/editor/EditorHobbyPage'
+import EditorPage from '@/components/editor/EditorPage'
 
 
 export default function page() {
-
-
   return (
     <div>
-      <EditorHobbyPage />
+      <EditorPage />
+      
     </div>
   )
 }
