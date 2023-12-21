@@ -11,6 +11,16 @@ export default function page() {
 
   return (
     <div>
+      <div className="studyContent_title__3680o">2023-12-24 축구 모임</div>
+      <div className="studyContent_userAndDate__1iYDv">
+        <div className="studyContent_user__1XYmH">
+          <div className="studyContent_userName__1GBr8">모임장 : 싸커킹</div>
+        </div>
+        <div className="studyContent_seperator__3CadK">
+        </div>
+        <div className="studyContent_registeredDate__3lybC">진행 기간 : 2023.12.24 ~ 2023.12.24</div>
+      </div>
+
       <div className="css-xeauxt">
         <h2 className="css-9qa72f">📍 활동 사진</h2>
         <p className="css-1n7wtqw">  - 팀원과의 활동을 기록해보세요 😉 </p>
