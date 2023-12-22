@@ -3,6 +3,7 @@ import React from 'react'
 import CategoryTabs from '../components/tabs/CategoryTabs.jsx'
 import Swiper from '@/components/swiper/BannerSwiper.jsx'
 
+
 async function getData() {
   const res = await fetch('http://192.168.0.142:3200/board/searchByViewCnt')
   // The return value is *not* serialized
@@ -34,6 +35,9 @@ export default async function Home() {
 
   return (
     <div>
+
+      
+
       <div className='css-xeauxt'>
         <Swiper />
       </div>
