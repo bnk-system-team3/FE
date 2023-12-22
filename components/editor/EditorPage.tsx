@@ -46,9 +46,8 @@ export default function EditorPage() {
 
       <div className="sc-fnVZcZ hmqpxx">
       <button className="sc-fFSPTT eEJWPz" onClick={handleSaveClick}>저장하기</button>
-        <button className="sc-bkbkJK eraKfR">공유하기</button>
         <div className="sc-iemWCZ hKymwP">
-          <img src="/images/bookmark.svg" className="sc-dIvrsQ biCrYn" />
+          <img src="/images/bookmark.png" className="sc-dIvrsQ biCrYn" />
         </div>
       </div>
 

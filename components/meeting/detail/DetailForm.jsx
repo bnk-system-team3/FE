@@ -165,16 +165,13 @@ export default async function DetailForm(props) {
             <span className="sc-iwajpm kydRHc">66</span>
           </div>
           <div className="sc-dlMDgC kpPvTx">
-            <img src="/images/bookmark.svg" alt="likes" className="sc-fKgJPI cxbltl" />
+            <img src="/images/bookmark.png" alt="likes" className="sc-fKgJPI cxbltl" />
             <span className="sc-iwajpm kydRHc">2</span>
           </div>
         </section>
         <div style={{ paddingBottom: '80px' }}>
           <div className="commentInput_commentInput__39H41">
-            <div className="commentInput_comment__Retbz">
-              댓글
-              <span className="commentInput_commentCount__2dHvH">0</span>
-            </div>
+            <div className="commentInput_comment__Retbz">댓글</div>
             <div className="commentInput_inputContainer__2W4WS">
               <img className="commentInput_profile__26AuB" src="/images/bnk.png" alt="profile" />
               <textarea className="commentInput_commentText__2er8t" placeholder="댓글을 입력하세요."></textarea>
@@ -192,9 +189,8 @@ export default async function DetailForm(props) {
 
       <div className="sc-fnVZcZ hmqpxx">
         <button className="sc-fFSPTT eEJWPz">바로지원</button>
-        <button className="sc-bkbkJK eraKfR">공유하기</button>
         <div className="sc-iemWCZ hKymwP">
-          <img src="/images/bookmark.svg" className="sc-dIvrsQ biCrYn" />
+          <img src="/images/bookmark.png" className="sc-dIvrsQ biCrYn" />
         </div>
       </div>
     </div>

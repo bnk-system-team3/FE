@@ -43,7 +43,7 @@ export default function TeamPageBtn() {
               <div>
                   <div className="kakaoButton_buttonWrapper__2BAZP">
                     <Link className="googleButton_button__3G4DT" href="/editor">
-                    <img src="/images/category/seminar.jpg" alt="logo" className="w-100 h-100" />
+                    <img src="/images/category/seminar.png" alt="logo" className="w-100 h-100" />
                     </Link>
                     <p className="kakaoButton_loginDescription__P1TjV">빈 페이지</p>
                   </div>
@@ -51,7 +51,7 @@ export default function TeamPageBtn() {
                 <div>
                   <div className="googleButton_buttonWrapper__1kPf3">
                     <Link className="googleButton_button__3G4DT" href="/editor/project">
-                      <img src="/images/category/project.jpg" alt="logo" className="w-100 h-100" />
+                      <img src="/images/category/project.png" alt="logo" className="w-100 h-100" />
                     </Link>
                     <p className="googleButton_loginDescription__1MrCF">프로젝트</p>
                   </div>
@@ -59,7 +59,7 @@ export default function TeamPageBtn() {
                 <div>
                   <div className="githubButton_buttonWrapper__5pwEe">
                     <Link className="googleButton_button__3G4DT" href="/editor/hobby">
-                      <img src="/images/category/volunteer.jpg" alt="logo" className="w-100 h-100" />
+                      <img src="/images/category/volunteer.png" alt="logo" className="w-100 h-100" />
                     </Link>
                     <p className="githubButton_loginDescription__3cZtC">봉사</p>
                   </div>

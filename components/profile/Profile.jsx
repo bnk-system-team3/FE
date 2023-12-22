@@ -1,5 +1,6 @@
 'use client'
 
+
 import React, { useState, useEffect, useMemo } from 'react'
 import ComboBox from '@/components/comboBox/ComboBox.jsx';
 import Select from 'react-select';
@@ -148,13 +149,36 @@ export default function Profile() {
               <span className="css-1xtz61h">*</span>
             </div>
 
-          </div>
-
           <MySelect />
+          </div>
           <div className="css-17yaykr">
             <div className="css-1n7wtqw">포인트</div>
             <div className="css-1n7wtqw">3</div>
           </div>
+          
+          <div className=" css-1r0k60i-control">
+            {/* 선택된 항목들을 나열 */}
+            <div className="css-1hwfws3">
+              {selectedOptions.map(option => (
+                <div className="css-1rhbuit-multiValue" key={option} onClick={() => handleSelectChange({ target: { value: option } })}>
+                  <div className="css-12jo7m5">{option}</div>
+                  <div className="css-xb97g8">
+                    <svg height="14" width="14" viewBox="0 0 20 20" aria-hidden="true" focusable="false" className="css-8mmkcg">
+                      <path d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"></path>
+                    </svg>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* 드롭다운 메뉴 */}
+            <select onChange={handleSelectChange}>
+              {availableOptions.sort().map(option => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
+          </div>
+          
           <div className="css-ndq9l2">
             <button onClick={modifyProfile} type="submit" className="css-u7euz2">프로필 저장</button>
             <div className="css-12jw1xy">회원 탈퇴</div>
