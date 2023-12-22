@@ -74,7 +74,7 @@ export default function MeetingTable(props) {
               <section className="studyItem_info__OFIQU">
                 <div className="studyItem_userInfo__1KkGa">
                   <div className="avatar_user__1Pgut">
-                    <img className="avatar_userImg__hogPI" width="30px" height="30px" src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="avatar" />
+                    <img className="avatar_userImg__hogPI" width="30px" height="30px" src="/images/bnk.png" alt="avatar" />
                   </div>
                   <div>abloom</div>
                 </div>
@@ -149,7 +149,7 @@ export default function MeetingTable(props) {
                 <section className="studyItem_info__OFIQU">
                   <div className="studyItem_userInfo__1KkGa">
                     <div className="avatar_user__1Pgut">
-                      <img className="avatar_userImg__hogPI" width="30px" height="30px" src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="avatar" />
+                      <img className="avatar_userImg__hogPI" width="30px" height="30px" src="/images/bnk.png" alt="avatar" />
                     </div>
                     <div>abloom</div>
                   </div>

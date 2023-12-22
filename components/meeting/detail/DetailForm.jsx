@@ -37,7 +37,7 @@ export default async function DetailForm(props) {
           <div className="studyContent_title__3680o">For Fun에서 두번째 프로덕트를 만드실 개발자분을 모집해요</div>
           <div className="studyContent_userAndDate__1iYDv">
             <div className="studyContent_user__1XYmH">
-              <img className="studyContent_userImg__3gyI-" src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="userImg" />
+              <img className="studyContent_userImg__3gyI-" src="/images/bnk.png" alt="userImg" />
               <div className="studyContent_userName__1GBr8">땅콩이</div>
             </div>
             <div className="studyContent_seperator__3CadK">
@@ -176,7 +176,7 @@ export default async function DetailForm(props) {
               <span className="commentInput_commentCount__2dHvH">0</span>
             </div>
             <div className="commentInput_inputContainer__2W4WS">
-              <img className="commentInput_profile__26AuB" src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="profile" />
+              <img className="commentInput_profile__26AuB" src="/images/bnk.png" alt="profile" />
               <textarea className="commentInput_commentText__2er8t" placeholder="댓글을 입력하세요."></textarea>
             </div>
             <div className="commentInput_buttonWrapper__2f_l9">

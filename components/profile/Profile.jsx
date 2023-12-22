@@ -11,9 +11,8 @@ export default function Profile() {
       <div className="css-gq3aoy">
         <div className="style_imageContainer__3wrgm">
           <label className="style_profileContainer__1ej4M">
-            <img className="style_userImg__1ujTt" src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="user avatar" />
+            <img className="style_userImg__1ujTt" src="/images/bnk.png" alt="user avatar" />
             <img className="style_profileEditBtn__3NSbU" src="/images/profile_edit.png" alt="profile edit" />
-            <input id="imageUpload" type="file" accept="image/*" />
           </label>
         </div>
         <div className="css-nkt5tk">awdfaf님 환영해요.</div>
