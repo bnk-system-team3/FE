@@ -171,10 +171,7 @@ export default async function DetailForm(props) {
         </section>
         <div style={{ paddingBottom: '80px' }}>
           <div className="commentInput_commentInput__39H41">
-            <div className="commentInput_comment__Retbz">
-              댓글
-              <span className="commentInput_commentCount__2dHvH">0</span>
-            </div>
+            <div className="commentInput_comment__Retbz">댓글</div>
             <div className="commentInput_inputContainer__2W4WS">
               <img className="commentInput_profile__26AuB" src="/images/bnk.png" alt="profile" />
               <textarea className="commentInput_commentText__2er8t" placeholder="댓글을 입력하세요."></textarea>
