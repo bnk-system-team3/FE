@@ -3,64 +3,121 @@ import React, { useState, useEffect, useMemo } from 'react'
 import 'react-quill/dist/quill.snow.css';
 import dynamic from 'next/dynamic';
 import ComboBox from '@/components/comboBox/ComboBox.jsx';
-import Calendar from 'rc-calendar';
-import 'rc-calendar/assets/index.css';
-
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from 'axios';
+import { Select, SelectItem } from "@nextui-org/react";
 
-export default function page() {
-
-  const [kind, setKind] = useState(0);
-  const [people, setPeople] = useState("");
-  const [method, setMethod] = useState(0);
-  const [period, setPeriod] = useState(0);
-  const [skill, setSkill] = useState("");
-  const [deadline, setDeadline] = useState(0);
-  const [position, setPosition] = useState("");
-  const [openchat, setOpenchat] = useState("");
-
-  const skills= ['C', 'C++', 'C#', 'Java', 'JavaScript', 'Python', 'Spring', 'MySQL', 'MSSQL', 'Next.js', 'React', 'TypeScript', 'Vue', 'Node.js', 'Nest.js', 'Express', 'Go', 'Django', 'Swift', 'Kotlin', 'MongoDB', 'PHP', 'GraphQL', 'FireBase', 'ReactNative', 'Unity', 'Flutter', 'AWS', 'Kubernetes', 'Docker', 'Git', 'Figma', 'Zeplin'];
+const skills= ['C', 'C++', 'C#', 'Java', 'JavaScript', 'Python', 'Spring', 'MySQL', 'MSSQL', 'Next.js', 'React', 'TypeScript', 'Vue', 'Node.js', 'Nest.js', 'Express', 'Go', 'Django', 'Swift', 'Kotlin', 'MongoDB', 'PHP', 'GraphQL', 'FireBase', 'ReactNative', 'Unity', 'Flutter', 'AWS', 'Kubernetes', 'Docker', 'Git', 'Figma', 'Zeplin'];
   const positions = ['프론트앤드', '백앤드', '디자이너', 'IOS', '안드로이드', '데브옵스', 'PM', '기획자'];
 
   // 두 배열을 합쳐서 새로운 배열을 만듭니다.
   const positionOptions = [ ...positions.map((position, index) => ({ value: `${index + 5}`, label: position }))];
   const skillOptions = [ ...skills.map((skill, index) => ({ value: `${index + 5}`, label: skill }))];
+
+const MultiComboBox = ({onChange, options}) => {
+  return (
+    options && options.length > 0 ? (
+      <Select
+        label="Favorite Animal"
+        placeholder="Select an animal"
+        selectionMode="multiple"
+        className="max-w-xs"
+        onChange={onChange}
+      >
+        {options.map((option) => (
+          <SelectItem key={option.value} value={option.value}>
+            {option.label}
+          </SelectItem>
+        ))}
+      </Select>
+    ) : (
+      <p>No options available</p>
+    )
+  );
+}
+
+const InputBox = ({ label, onChange, value }) => {
+   
+  return (
+    <div>
+      <label>{label}</label>
+      <input
+        onChange={onChange}
+        value={value}
+        type="text"
+        placeholder="입력하세요"
+        style={{
+          width: '500px',
+          height: '38px',
+          fontSize: '15px',
+          border: '1px solid #ccc', // 테두리 스타일 추가
+          borderRadius: '4px', // 테두리 모서리를 둥글게 만듭니다.
+          padding: '8px', // 텍스트와 테두리 사이의 여백을 추가합니다.
+        }} />
+    </div>
+  );
+}
+
+const QuillWrapper = dynamic(() => import('react-quill'), {
+  ssr: false,
+  loading: () => <p>Loading ...</p>,
+})
+
+export default function page() {
+  const [category, setCategory] = useState(0);
+  const [recruitCnt, setRecruitCnt] = useState("");
+  const [onOffStatus, setOnOffStatus] = useState(0);
+  const [startDate, setStartDate] = useState(0);
+  const [endDate, setEndDate] = useState(0);
+  const [skill, setSkill] = useState("");
+  const [dueDate, setDueDate] = useState(0);
+  const [position, setPosition] = useState("");
+  const [chattingUrl, setChattingUrl] = useState("");
+  const [content, setContent] = useState(null);
+  const [title, setTitle] = useState(null);
+
   
+
   const register = async () => {
+    console.log();
     try {
-      const response = await axios.post('/board/save', {
-        inquirynm: title,
-        inquirycntn: content,
+      const response = await axios.post('http://192.168.0.142:3200/board/saveStudyProjectBoard', {
+        
+        category: "프로젝트",
+        title: "title",
+        description: "content",
+        recruitCnt: 1,
+        onOffStatus: 1,
+        chattingUrl: "chattingUrl",
+        startDate: "2023-11-27",
+        endDate: "2023-11-27",
+        dueDate: "2023-11-27",
+        techStack: ["C", "C#"],
+        positions: ["백엔드", "프론트엔드"],
+        location: "",
+
+        userId:"1111111",
+        nickname:"111111"
       }
     );
     console.log(response)
     } catch (error) {
-        alert("에러");
-      
+      console.log(error)
+        
     }
   };
 
-  const CalendarButton = () => {
-    const [selectedDate, setSelectedDate] = useState(null);
-
-    const handleDateChange = (date) => {
-      handleSet(date);
-      setSelectedDate(date);
-    };
-
-    const handleSet = ({date}) => {
-      setDeadline(date);
-    }
+  const CalendarButton = ({label, onChange, selectedDate}) => {
 
     return (
-      <div style={{width: '500px'}}>
+      <div>
         <div>
-        <label>모집마감일</label>
+        <label>{label}</label>
         <DatePicker
         className="datePicker"
         selected={selectedDate}
-        onChange={handleDateChange}
+        onChange={onChange}
         dateFormat="yyyy-MM-dd"
         // 그 외 필요한 옵션들...
       />
@@ -76,35 +133,11 @@ export default function page() {
     );
   };
 
-  const InputBox = ({ label, onChange, value }) => {
-   
-    return (
-      <div>
-        <label>{label}</label>
-        <input
-          onChange={onChange}
-          value={value}
-          type="text"
-          placeholder="입력하세요"
-          style={{
-            width: '500px',
-            height: '38px',
-            fontSize: '15px',
-            border: '1px solid #ccc', // 테두리 스타일 추가
-            borderRadius: '4px', // 테두리 모서리를 둥글게 만듭니다.
-            padding: '8px', // 텍스트와 테두리 사이의 여백을 추가합니다.
-          }} />
-      </div>
-    );
-  }
-
-  useEffect(() => {
-    console.log(method); // 업데이트된 method 값 출력
-  }, [method]); // method 값이 업데이트될 때만 useEffect 실행
+  
 
 const handleSet = ({label, option}) => {
   if(label === "진행방식"){
-    setMethod(option.value);
+    setOnOffStatus(option.value);
   }else if(label === "기술스택"){
     setSkill(option.label);
   }else if(label === "모집포지션"){
@@ -118,7 +151,6 @@ const handleSet = ({label, option}) => {
       handleSet(label, option);
       setSelectedOption(option);
       
-      debugger
       console.log(option)
     };
 
@@ -133,11 +165,6 @@ const handleSet = ({label, option}) => {
       </div>
     );
   };
-
-  const QuillWrapper = dynamic(() => import('react-quill'), {
-    ssr: false,
-    loading: () => <p>Loading ...</p>,
-  })
 
   const modules = {
     toolbar: [
@@ -177,8 +204,8 @@ const handleSet = ({label, option}) => {
   ]
 
   useEffect(() => {
-    console.log(skillOptions);
-  }, []);
+    console.log(skill);
+  }, [skill]);
 
   return (
     <div>
@@ -200,8 +227,8 @@ const handleSet = ({label, option}) => {
             <li className="postinfo_listItem__OFhXr">
               <InputBox
                 label="모집인원"
-                onChange={(e) => setPeople(e.target.value)}
-                value={people}
+                onChange={(e) => setRecruitCnt(e.target.value)}
+                value={recruitCnt}
               />
             </li>
           </ul>
@@ -216,41 +243,66 @@ const handleSet = ({label, option}) => {
                   { value: '4', label: '미정' },
                 ]} />
             </li>
-            <li className="postinfo_listItem__OFhXr">
-            <InputBox
-                label="진행기간"
-                onChange={(e) => setPeriod(e.target.value)}
-                value={period}
-              />
+            <li>
+            <CalendarButton
+            label="시작날짜"
+            onChange={(e) => {
+              setStartDate(e)
+             
+            }}
+            selectedDate={startDate}/>
+            <CalendarButton
+            label="끝날짜"
+            onChange={(e) => {
+              setEndDate(e)
+            }}
+            selectedDate={endDate}/>
+              
             </li>
           </ul>
-          <ul className="postinfo_inputList__3SKF-">
+          <ul>
             <li className="postinfo_listItem__OFhXr">
-            <IndexPage
-                label="기술스택"
-                options={skillOptions} />
+              
+              <div style={{width:'1000px', backgroundColor:'#fff', borderColor:'#cdcdcd'}}>
+                <MultiComboBox
+                options={skillOptions}
+                onChange={(e) => {
+                  console.log(e.map(skill => skill.label))
+                  setSkill(e.map(skill => skill.label));
+                }}/>
+              </div>
+ 
 
             </li>
             <li className="postinfo_listItem__OFhXr">
             
-              <CalendarButton/>
+              <CalendarButton
+              label="기간"
+              onChange={(e) => {
+                setDueDate(e)
+              }}
+              selectedDate={dueDate}/>
             </li>
           </ul>
           <ul className="postinfo_inputList__3SKF-">
             <li className="postinfo_listItem__OFhXr">
-            <IndexPage
-                label="모집포지션"
-                options=
-                  {positionOptions}
-                 />
+            <MultiComboBox
+                options={positionOptions} 
+                onChange={(e) => {
+                  setPosition(e.target.value);
+                }}/>
+
+            
             </li>
             <li className="postinfo_listItem__OFhXr">
             <InputBox
                 label="카카오톡 오픈채팅"
-                onChange={(e) => setOpenchat(e.target.value)}
-                value={openchat}
+                onChange={(e) => setChattingUrl(e.target.value)}
+                value={chattingUrl}
               />
             </li>
+            
+            
           </ul>
         </section>
 
@@ -261,8 +313,8 @@ const handleSet = ({label, option}) => {
           </div>
 
           <label className="input_labelText__3R2TI" for="input">제목</label>
-          <input className="input_customInput__1e1Il" id="input" placeholder="글 제목을 입력해주세요!" value=""></input>
-          <QuillWrapper style={{ height: '500px' }} modules={modules} formats={formats} theme="snow" />
+          <input className="input_customInput__1e1Il" id="input" placeholder="글 제목을 입력해주세요!" value={title} onChange={(e) => {setTitle(e)}}></input>
+          <QuillWrapper style={{ height: '500px' }} modules={modules} formats={formats} theme="snow" onChange={(e) => {setContent(e)}} value={content}/>
         </section>
         <section className="writebutton_buttons__2qW83">
           <button className="writebutton_cancelButton__2W7b_">취소</button>
