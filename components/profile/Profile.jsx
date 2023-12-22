@@ -1,9 +1,29 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Profile() {
+  // 사용 가능한 항목과 선택된 항목을 관리하는 state
+  const [availableOptions, setAvailableOptions] = useState(['', 'Option 1', 'Option 2', 'Option 3', 'Option 4']);
+  const [selectedOptions, setSelectedOptions] = useState([]);
 
+  // 항목을 선택하면 선택된 항목에 추가하거나 제거하는 함수
+  const handleSelectChange = (event) => {
+    const selectedOption = event.target.value;
+
+    // 이미 선택된 항목인지 확인
+    if (selectedOptions.includes(selectedOption)) {
+      // 선택된 항목에서 제거
+      setSelectedOptions(selectedOptions.filter(option => option !== selectedOption));
+      // 사용 가능한 항목에 추가
+      setAvailableOptions([...availableOptions, selectedOption]);
+    } else {
+      // 선택된 항목에 추가
+      setSelectedOptions([...selectedOptions, selectedOption]);
+      // 사용 가능한 항목에서 제거
+      setAvailableOptions(availableOptions.filter(option => option !== selectedOption));
+    }
+  };
 
   
   return (
@@ -143,7 +163,6 @@ export default function Profile() {
                 <div className=" css-1wy0on6">
                   <div className=" css-tlfecz-indicatorContainer" aria-hidden="true">
                     <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" className="css-8mmkcg">
-                      <path d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"></path>
                     </svg>
                   </div>
                   <span className=" css-43ykx9-indicatorSeparator"></span>
@@ -163,6 +182,30 @@ export default function Profile() {
             <div className="css-1n7wtqw">포인트</div>
             <div className="css-1n7wtqw">3</div>
           </div>
+          
+          <div className=" css-1r0k60i-control">
+            {/* 선택된 항목들을 나열 */}
+            <div className="css-1hwfws3">
+              {selectedOptions.map(option => (
+                <div className="css-1rhbuit-multiValue" key={option} onClick={() => handleSelectChange({ target: { value: option } })}>
+                  <div className="css-12jo7m5">{option}</div>
+                  <div className="css-xb97g8">
+                    <svg height="14" width="14" viewBox="0 0 20 20" aria-hidden="true" focusable="false" className="css-8mmkcg">
+                      <path d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"></path>
+                    </svg>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* 드롭다운 메뉴 */}
+            <select onChange={handleSelectChange}>
+              {availableOptions.sort().map(option => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
+          </div>
+          
           <div className="css-ndq9l2">
             <button type="submit" className="css-u7euz2">프로필 저장</button>
             <div className="css-12jw1xy">회원 탈퇴</div>
