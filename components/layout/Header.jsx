@@ -1,8 +1,9 @@
 'use client'
 
 import React from 'react'
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar } from "@nextui-org/react";
 import NewMeeting from '@/components/NewMeeting/NewMeeting.jsx'
+import Link from 'next/link';
 
 export default function Header() {
   return (
@@ -10,7 +11,7 @@ export default function Header() {
       <Navbar>
         <NavbarBrand>
           <Link href='/'>
-            <img src="/images/bnk.png" alt="logo" className="w-10 h-10" />
+            <img src="/images/bnklub.png" alt="logo" className="w-30 h-10" />
           </Link>
         </NavbarBrand>
 
@@ -27,7 +28,9 @@ export default function Header() {
           {/* <Link color="foreground" href="#">
             새 글 쓰기 dasd
           </Link> */}
+
           <NewMeeting />
+          
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
               <Avatar
@@ -42,12 +45,15 @@ export default function Header() {
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" variant="flat">
               <DropdownItem key="profile" className="h-14 gap-2">
-                <p className="font-semibold">Signed in as</p>
-                <p className="font-semibold">abc@bnksystem.com</p>
+                <p className="font-semibold">GeonWoo@bnksystem.co.kr</p>
+                <p className="font-semibold">님 환영합니다 !</p>
               </DropdownItem>
-              <DropdownItem key="settings">내 프로필</DropdownItem>
-              <DropdownItem key="team_settings">모임 목록</DropdownItem>
-              <DropdownItem key="analytics">설정</DropdownItem>
+              <DropdownItem key="settings">
+                <Link href="/profile">내 프로필</Link>
+                </DropdownItem>
+              <DropdownItem key="team_settings">
+                <Link href="/myList">모임 목록</Link>
+              </DropdownItem>
               <DropdownItem key="logout" color="danger">로그아웃</DropdownItem>
             </DropdownMenu>
           </Dropdown>

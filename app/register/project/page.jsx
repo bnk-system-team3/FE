@@ -7,15 +7,16 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 import { Select, SelectItem } from "@nextui-org/react";
+import Editor from '@/components/editor/Editor'
 
-const skills= ['C', 'C++', 'C#', 'Java', 'JavaScript', 'Python', 'Spring', 'MySQL', 'MSSQL', 'Next.js', 'React', 'TypeScript', 'Vue', 'Node.js', 'Nest.js', 'Express', 'Go', 'Django', 'Swift', 'Kotlin', 'MongoDB', 'PHP', 'GraphQL', 'FireBase', 'ReactNative', 'Unity', 'Flutter', 'AWS', 'Kubernetes', 'Docker', 'Git', 'Figma', 'Zeplin'];
-  const positions = ['프론트앤드', '백앤드', '디자이너', 'IOS', '안드로이드', '데브옵스', 'PM', '기획자'];
+const skills = ['C', 'C++', 'C#', 'Java', 'JavaScript', 'Python', 'Spring', 'MySQL', 'MSSQL', 'Next.js', 'React', 'TypeScript', 'Vue', 'Node.js', 'Nest.js', 'Express', 'Go', 'Django', 'Swift', 'Kotlin', 'MongoDB', 'PHP', 'GraphQL', 'FireBase', 'ReactNative', 'Unity', 'Flutter', 'AWS', 'Kubernetes', 'Docker', 'Git', 'Figma', 'Zeplin'];
+const positions = ['프론트앤드', '백앤드', '디자이너', 'IOS', '안드로이드', '데브옵스', 'PM', '기획자'];
 
-  // 두 배열을 합쳐서 새로운 배열을 만듭니다.
-  const positionOptions = [ ...positions.map((position, index) => ({ value: `${index + 5}`, label: position }))];
-  const skillOptions = [ ...skills.map((skill, index) => ({ value: `${index + 5}`, label: skill }))];
+// 두 배열을 합쳐서 새로운 배열을 만듭니다.
+const positionOptions = [...positions.map((position, index) => ({ value: `${index + 5}`, label: position }))];
+const skillOptions = [...skills.map((skill, index) => ({ value: `${index + 5}`, label: skill }))];
 
-const MultiComboBox = ({onChange, options}) => {
+const MultiComboBox = ({ onChange, options }) => {
   return (
     options && options.length > 0 ? (
       <Select
@@ -38,7 +39,7 @@ const MultiComboBox = ({onChange, options}) => {
 }
 
 const InputBox = ({ label, onChange, value }) => {
-   
+
   return (
     <div>
       <label>{label}</label>
@@ -76,14 +77,19 @@ export default function page() {
   const [chattingUrl, setChattingUrl] = useState("");
   const [content, setContent] = useState(null);
   const [title, setTitle] = useState(null);
+  const [editorContent, setEditorContent] = useState("");
 
-  
+  const handleEditorContentChange = (html) => {
+    setEditorContent(html);
+  };
+
+
 
   const register = async () => {
     console.log();
     try {
       const response = await axios.post('http://192.168.0.142:3200/board/saveStudyProjectBoard', {
-        
+
         category: "프로젝트",
         title: "title",
         description: "content",
@@ -97,32 +103,32 @@ export default function page() {
         positions: ["백엔드", "프론트엔드"],
         location: "",
 
-        userId:"1111111",
-        nickname:"111111"
+        userId: "1111111",
+        nickname: "111111"
       }
-    );
-    console.log(response)
+      );
+      console.log(response)
     } catch (error) {
       console.log(error)
-        
+
     }
   };
 
-  const CalendarButton = ({label, onChange, selectedDate}) => {
+  const CalendarButton = ({ label, onChange, selectedDate }) => {
 
     return (
       <div>
         <div>
-        <label>{label}</label>
-        <DatePicker
-        className="datePicker"
-        selected={selectedDate}
-        onChange={onChange}
-        dateFormat="yyyy-MM-dd"
-        // 그 외 필요한 옵션들...
-      />
-      
-      <button className="css-slyssw" tabindex="0" aria-label="Choose date, selected date is Dec 29, 2023">
+          <label>{label}</label>
+          <DatePicker
+            className="datePicker"
+            selected={selectedDate}
+            onChange={onChange}
+            dateFormat="yyyy-MM-dd"
+          // 그 외 필요한 옵션들...
+          />
+
+          <button className="css-slyssw" tabindex="0" aria-label="Choose date, selected date is Dec 29, 2023">
             <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CalendarIcon">
               <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"></path>
             </svg>
@@ -133,24 +139,24 @@ export default function page() {
     );
   };
 
-  
 
-const handleSet = ({label, option}) => {
-  if(label === "진행방식"){
-    setOnOffStatus(option.value);
-  }else if(label === "기술스택"){
-    setSkill(option.label);
-  }else if(label === "모집포지션"){
-    setPosition(option.label);
+
+  const handleSet = ({ label, option }) => {
+    if (label === "진행방식") {
+      setOnOffStatus(option.value);
+    } else if (label === "기술스택") {
+      setSkill(option.label);
+    } else if (label === "모집포지션") {
+      setPosition(option.label);
+    }
   }
-}
 
   const IndexPage = ({ label, options }) => {
     const [selectedOption, setSelectedOption] = useState(null);
     const handleSelectChange = (option) => {
       handleSet(label, option);
       setSelectedOption(option);
-      
+
       console.log(option)
     };
 
@@ -244,65 +250,65 @@ const handleSet = ({label, option}) => {
                 ]} />
             </li>
             <li>
-            <CalendarButton
-            label="시작날짜"
-            onChange={(e) => {
-              setStartDate(e)
-             
-            }}
-            selectedDate={startDate}/>
-            <CalendarButton
-            label="끝날짜"
-            onChange={(e) => {
-              setEndDate(e)
-            }}
-            selectedDate={endDate}/>
-              
+              <CalendarButton
+                label="시작날짜"
+                onChange={(e) => {
+                  setStartDate(e)
+
+                }}
+                selectedDate={startDate} />
+              <CalendarButton
+                label="끝날짜"
+                onChange={(e) => {
+                  setEndDate(e)
+                }}
+                selectedDate={endDate} />
+
             </li>
           </ul>
           <ul>
             <li className="postinfo_listItem__OFhXr">
-              
-              <div style={{width:'1000px', backgroundColor:'#fff', borderColor:'#cdcdcd'}}>
+
+              <div style={{ width: '1000px', backgroundColor: '#fff', borderColor: '#cdcdcd' }}>
                 <MultiComboBox
-                options={skillOptions}
-                onChange={(e) => {
-                  console.log(e.map(skill => skill.label))
-                  setSkill(e.map(skill => skill.label));
-                }}/>
+                  options={skillOptions}
+                  onChange={(e) => {
+                    console.log(e.map(skill => skill.label))
+                    setSkill(e.map(skill => skill.label));
+                  }} />
               </div>
- 
+
 
             </li>
             <li className="postinfo_listItem__OFhXr">
-            
+
               <CalendarButton
-              label="기간"
-              onChange={(e) => {
-                setDueDate(e)
-              }}
-              selectedDate={dueDate}/>
+                label="기간"
+                onChange={(e) => {
+                  setDueDate(e)
+                }}
+                selectedDate={dueDate} />
             </li>
           </ul>
           <ul className="postinfo_inputList__3SKF-">
             <li className="postinfo_listItem__OFhXr">
-            <MultiComboBox
-                options={positionOptions} 
+              <MultiComboBox
+                options={positionOptions}
                 onChange={(e) => {
                   setPosition(e.target.value);
-                }}/>
+                }} />
 
-            
+
             </li>
             <li className="postinfo_listItem__OFhXr">
-            <InputBox
+              <InputBox
                 label="카카오톡 오픈채팅"
                 onChange={(e) => setChattingUrl(e.target.value)}
                 value={chattingUrl}
               />
             </li>
-            
-            
+
+
           </ul>
         </section>
 
@@ -313,15 +319,16 @@ const handleSet = ({label, option}) => {
           </div>
 
           <label className="input_labelText__3R2TI" for="input">제목</label>
-          <input className="input_customInput__1e1Il" id="input" placeholder="글 제목을 입력해주세요!" value={title} onChange={(e) => {setTitle(e)}}></input>
-          <QuillWrapper style={{ height: '500px' }} modules={modules} formats={formats} theme="snow" onChange={(e) => {setContent(e)}} value={content}/>
+          <input className="input_customInput__1e1Il" id="input" placeholder="글 제목을 입력해주세요!" value={title} onChange={(e) => { setTitle(e) }}></input>
+          <QuillWrapper style={{ height: '500px' }} modules={modules} formats={formats} theme="snow" onChange={(e) => { setContent(e) }} value={content} />
         </section>
         <section className="writebutton_buttons__2qW83">
           <button className="writebutton_cancelButton__2W7b_">취소</button>
           <button className="writebutton_registerButton__n_O2M" onClick={register}>글 등록</button>
         </section>
       </div>
-
+      <Editor onContentChange={handleEditorContentChange} />
+      <p>{editorContent}</p>
     </div>
 
   )
