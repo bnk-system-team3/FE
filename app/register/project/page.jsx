@@ -104,7 +104,7 @@ export default function page() {
         location: "",
 
         userId: "1111111",
-        nickname: "111111"
+        
       }
       );
       console.log(response)
