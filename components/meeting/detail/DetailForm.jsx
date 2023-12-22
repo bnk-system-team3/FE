@@ -192,7 +192,6 @@ export default async function DetailForm(props) {
 
       <div className="sc-fnVZcZ hmqpxx">
         <button className="sc-fFSPTT eEJWPz">바로지원</button>
-        <button className="sc-bkbkJK eraKfR">공유하기</button>
         <div className="sc-iemWCZ hKymwP">
           <img src="/images/bookmark.svg" className="sc-dIvrsQ biCrYn" />
         </div>
