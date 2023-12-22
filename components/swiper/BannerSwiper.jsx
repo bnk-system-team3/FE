@@ -28,14 +28,18 @@ export default function BannerSwiper() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src="images/1.png" alt="banner" />
+        <a href="https://www.bnksys.co.kr/web/main.do">
+          <img src="images/1.png" alt="banner" />    
+        </a>
         </SwiperSlide>
         <SwiperSlide>
+        <a href="https://www.youtube.com/@bnkfg">
           <img src="images/2.png" alt="banner" />
+        </a>
         </SwiperSlide>
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <img src="images/3.png" alt="banner" />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </>
   )
