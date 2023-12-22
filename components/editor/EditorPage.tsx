@@ -3,9 +3,12 @@
 import React, { useState } from 'react';
 import Editor from '@/components/editor/Editor';
 
+
+
 export default function EditorPage() {
 
   const [editorContent, setEditorContent] = useState<string>("");
+
 
   // const handleEditorChange = (content) => {
   //   setEditorContent(content);
@@ -35,6 +38,9 @@ export default function EditorPage() {
 
   return (
     <div>
+      
+
+
       {/* <button onClick={console.log(editorContent)}>출력</button> */}
       <Editor onContentChange={handleEditorContentChange} />
 
