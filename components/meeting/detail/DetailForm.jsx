@@ -165,7 +165,7 @@ export default async function DetailForm(props) {
             <span className="sc-iwajpm kydRHc">66</span>
           </div>
           <div className="sc-dlMDgC kpPvTx">
-            <img src="/images/bookmark.svg" alt="likes" className="sc-fKgJPI cxbltl" />
+            <img src="/images/bookmark.png" alt="likes" className="sc-fKgJPI cxbltl" />
             <span className="sc-iwajpm kydRHc">2</span>
           </div>
         </section>
@@ -193,7 +193,7 @@ export default async function DetailForm(props) {
       <div className="sc-fnVZcZ hmqpxx">
         <button className="sc-fFSPTT eEJWPz">바로지원</button>
         <div className="sc-iemWCZ hKymwP">
-          <img src="/images/bookmark.svg" className="sc-dIvrsQ biCrYn" />
+          <img src="/images/bookmark.png" className="sc-dIvrsQ biCrYn" />
         </div>
       </div>
     </div>
