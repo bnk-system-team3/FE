@@ -215,6 +215,7 @@
   width: 900px;
 }
 
+
 .selectbox_labelText__3Q9iz {
   display: inline-block;
   margin-bottom: 5px;
@@ -574,7 +575,7 @@
   box-shadow: none;
   padding-left: 16px;
   padding-right: 52px;
-  border: 1px solid #e1e3e8;
+  border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
   font-weight: 500;
@@ -1099,16 +1100,26 @@
 
 
 .datePicker {
-  display: flex;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 5px;
+  height: 55px;
+  width:100%;
   align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  width: 500px;
-  height: 38px;
   text-align: center;
   padding-right: 14px;
 }
+
+.labelContainer {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+ label{
+  font-weight: bold;
+  margin-bottom: 5px;
+ }
+
 
 .contactPoint_contactWrapper__2T_GC{
   list-style: none;

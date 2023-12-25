@@ -17,7 +17,7 @@ const QuillWrapper = dynamic(() => import('react-quill'), {
 })
 
 export default function page() {
-  const [category, setCategory] = useState("프로젝트");
+  const [category, setCategory] = useState("스터디");
   const [recruitCnt, changeRecruitCnt] = useInput("");
   const [onOffStatus, setOnOffStatus] = useState(0);
   const [startDate, setStartDate] = useState(0);
@@ -37,7 +37,6 @@ export default function page() {
   const [chattingUrl, changechattingUrl] = useInput("");
 
   const register = async () => {
-    console.log(selectedskill.map(item => item.value));
     try {
       const response = await axios.post('http://192.168.0.142:3200/board/saveStudyProjectBoard', {
         category: category,
@@ -102,7 +101,7 @@ export default function page() {
   };
 
   const CategoryComboBox = ({ label, options }) => {
-    const [selectedOption, setSelectedOption] = useState({ value: '프로젝트', label: '프로젝트' });
+    const [selectedOption, setSelectedOption] = useState({ value: '스터디', label: '스터디' });
     const handleSelectChange = (option) => {
       setCategory(option.value);
       setSelectedOption(option);
@@ -210,7 +209,7 @@ export default function page() {
               <div style={{ display: 'flex', gap: '15px' }}>
                 <div style={{ width: '236px' }}>
                   <CalendarButton
-                    label="프로젝트 시작일"
+                    label="스터디 시작일"
                     onChange={(e) => {
                       setStartDate(e)
                     }}
@@ -218,7 +217,7 @@ export default function page() {
                 </div>
                 <div style={{ width: '236px' }}>
                   <CalendarButton
-                    label="프로젝트 마감일"
+                    label="스터디 마감일"
                     onChange={(e) => {
                       setEndDate(e)
                     }}

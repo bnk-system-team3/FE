@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 
-const ComboBox = ({ options, onChange, value }) => {
+const DisabledComboBox = ({ options, onChange, value }) => {
   return (
     <Select
       options={options}
@@ -14,8 +14,9 @@ const ComboBox = ({ options, onChange, value }) => {
           height:'55px',
         }),
       }}
+      isDisabled
     />
   );
 };
 
-export default ComboBox;
+export default DisabledComboBox;

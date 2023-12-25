@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import 'react-quill/dist/quill.snow.css';
 import dynamic from 'next/dynamic';
 import ComboBox from '@/components/comboBox/ComboBox.jsx';
@@ -9,7 +9,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 import Editor from '@/components/editor/Editor'
 import { useInput } from "@/hooks/useInput";
-import { useMultiCombo } from "@/hooks/useMultiCombo";
 
 const QuillWrapper = dynamic(() => import('react-quill'), {
   ssr: false,
@@ -17,7 +16,7 @@ const QuillWrapper = dynamic(() => import('react-quill'), {
 })
 
 export default function page() {
-  const [category, setCategory] = useState("프로젝트");
+  const [category, setCategory] = useState("세미나");
   const [recruitCnt, changeRecruitCnt] = useInput("");
   const [onOffStatus, setOnOffStatus] = useState(0);
   const [startDate, setStartDate] = useState(0);
@@ -25,19 +24,9 @@ export default function page() {
   const [dueDate, setDueDate] = useState(0);
   const [title, setTitle] = useState(null);
   const [editorContent, setEditorContent] = useState("");
-  const [selectedskill, renderSkill] = useMultiCombo([
-    'C', 'C++', 'C#', 'Java', 'JavaScript', 'Python', 'Spring', 'MySQL', 'MSSQL', 'Next.js',
-    'React', 'TypeScript', 'Vue', 'Node.js', 'Nest.js', 'Express', 'Go', 'Django', 'Swift',
-    'Kotlin', 'MongoDB', 'PHP', 'GraphQL', 'FireBase', 'ReactNative', 'Unity', 'Flutter', 'AWS',
-    'Kubernetes', 'Docker', 'Git', 'Figma', 'Zeplin'
-  ], '기술 스택');
-  const [selectedPosition, renderPosition] = useMultiCombo([
-    '프론트앤드', '백앤드', '디자이너', 'IOS', '안드로이드', '데브옵스', 'PM', '기획자'
-  ], '모집 포지션');
   const [chattingUrl, changechattingUrl] = useInput("");
 
   const register = async () => {
-    console.log(selectedskill.map(item => item.value));
     try {
       const response = await axios.post('http://192.168.0.142:3200/board/saveStudyProjectBoard', {
         category: category,
@@ -49,8 +38,6 @@ export default function page() {
         startDate: startDate,
         endDate: endDate,
         dueDate: dueDate,
-        techStack: selectedskill.map(item => item.value),
-        positions: selectedPosition.map(item => item.value),
         location: "",
 
         userId: "1111111",
@@ -102,7 +89,7 @@ export default function page() {
   };
 
   const CategoryComboBox = ({ label, options }) => {
-    const [selectedOption, setSelectedOption] = useState({ value: '프로젝트', label: '프로젝트' });
+    const [selectedOption, setSelectedOption] = useState({ value: '세미나', label: '세미나' });
     const handleSelectChange = (option) => {
       setCategory(option.value);
       setSelectedOption(option);
@@ -210,7 +197,7 @@ export default function page() {
               <div style={{ display: 'flex', gap: '15px' }}>
                 <div style={{ width: '236px' }}>
                   <CalendarButton
-                    label="프로젝트 시작일"
+                    label="세미나 시작일"
                     onChange={(e) => {
                       setStartDate(e)
                     }}
@@ -218,7 +205,7 @@ export default function page() {
                 </div>
                 <div style={{ width: '236px' }}>
                   <CalendarButton
-                    label="프로젝트 마감일"
+                    label="세미나 마감일"
                     onChange={(e) => {
                       setEndDate(e)
                     }}
@@ -228,9 +215,7 @@ export default function page() {
             </li>
           </ul>
           <ul className="postinfo_inputList__3SKF-">
-            <li className="postinfo_listItem__OFhXr">
-              {renderSkill()}
-            </li>
+            
             <li className="postinfo_listItem__OFhXr">
               <CalendarButton
                 label="모집마감일"
@@ -239,11 +224,8 @@ export default function page() {
                 }}
                 selectedDate={dueDate} />
             </li>
-          </ul>
-          <ul className="postinfo_inputList__3SKF-">
-            <li className="postinfo_listItem__OFhXr">
-              {renderPosition()}
-            </li>
+          
+            
             <li className="postinfo_listItem__OFhXr">
               <div className="labelContainer">
                 <label>카카오톡 오픈채팅</label>
