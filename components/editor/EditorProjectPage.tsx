@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Editor from '@/components/editor/Editor'
+import SaveBtn from './SaveBtn';
 
 export default function EditorProjectPage() {
 
@@ -52,12 +53,13 @@ export default function EditorProjectPage() {
       </div>
       <Editor onContentChange={handleEditorContentChange4} />
 
-      <div className="sc-fnVZcZ hmqpxx">
+      {/* <div className="sc-fnVZcZ hmqpxx">
         <button className="sc-fFSPTT eEJWPz">저장하기</button>
         <div className="sc-iemWCZ hKymwP">
           <img src="/images/bookmark.png" className="sc-dIvrsQ biCrYn" />
         </div>
-      </div>
+      </div> */}
+      <SaveBtn />
     </div>
   )
 }

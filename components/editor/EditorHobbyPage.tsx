@@ -4,10 +4,17 @@ import React, { useRef, useState } from 'react'
 import "@/components/ImageBox/img.css"
 import ImageBox from "@/components/ImageBox/ImageBox";
 import Editor from '@/components/editor/Editor'
+import SaveBtn from './SaveBtn';
+
 
 export default function EditorHobbyPage() {
   const inpRef = useRef<HTMLInputElement>(null);
   const [imageList, setImageList] = useState<string[]>([]);
+  const [editorContent, setEditorContent] = useState<string>("");
+
+  const handleEditorContentChange = (html: string) => {
+    setEditorContent(html);
+  };
 
   return (
     <div>
@@ -54,14 +61,15 @@ export default function EditorHobbyPage() {
           />
         </div>
       </div>
-      {/* <Editor /> */}
+      <Editor onContentChange={handleEditorContentChange} />
 
-      <div className="sc-fnVZcZ hmqpxx">
+      {/* <div className="sc-fnVZcZ hmqpxx">
         <button className="sc-fFSPTT eEJWPz">저장하기</button>
         <div className="sc-iemWCZ hKymwP">
           <img src="/images/bookmark.png" className="sc-dIvrsQ biCrYn" />
         </div>
-      </div>
+      </div> */}
+      <SaveBtn />
     </div>
   )
 }
