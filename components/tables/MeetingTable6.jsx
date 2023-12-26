@@ -6,6 +6,7 @@ import { Accordion, AccordionItem, Card, CardBody, Button } from "@nextui-org/re
 import TeamPageBtn from '@/components/editor/TeamPageBtn.jsx';
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@nextui-org/react";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
+import ReactModal from "react-modal";
 
 
 export default function MeetingTable6(props) {
@@ -23,16 +24,17 @@ export default function MeetingTable6(props) {
 
   // console.log(props.id);
 
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleNameClick = () => {
     setIsModalOpen(true);
   };
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const [projects, setProjects] = useState([]);
-
-
 
   const handleNoClick = () => {
 
@@ -238,7 +240,7 @@ export default function MeetingTable6(props) {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">승인 완료</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1">생성 완료</ModalHeader>
 
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
@@ -252,6 +254,50 @@ export default function MeetingTable6(props) {
           )}
         </ModalContent>
       </Modal>
+      <ReactModal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        style={{
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          },
+          content: {
+            borderRadius: '50px',
+            height: '65%',
+            width: '30%',
+            margin: 'auto',
+          },
+        }}
+      >
+        <div>
+          <div class="userDetailModal_upSection__1Xqnt">
+            <div class="userDetailModal_modalHeader__HGpI1">
+              <Button style={{ backgroundColor: 'transparent' }} onClick={closeModal}>
+                <img class="userDetailModal_backButton__1-HjB" src="https://holaworld.io/images/info/close.png" alt="backBtn" />
+              </Button>
+            </div>
+            <div class="userDetailModal_avatarContainer__3jvPa">
+              <img class="userDetailModal_avatar__2MlM7" src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="user avatar" />
+
+            </div>
+          </div>
+          <div class="userDetailModal_modalContent__2QmRv">
+            <div class="userDetailModal_modalContent__2QmRv">강민세</div>
+            <div class="userDetailModal_careerInfo__1niLG">
+              <div class="userDetailModal_position__3aTFw">프론트엔드 개발자</div>
+              <div class="userDetailModal_workExperience__3mlu0">1년차</div>
+            </div>
+            <div class="userDetailModal_likeLanguagesConatiner__1agju">
+              <div class="userDetailModal_languagesText__1WOWx">관심 스택</div>
+              <ul class="userDetailModal_likeLanguages__FNuBZ">
+                <li class="userDetailModal_languageItem__15MoB">React</li>
+              </ul>
+            </div>
+            <div class="userDetailModal_introduces__1-ahE">만나서 반가워요!</div>
+            <ul class="userDetailModal_urls__3Loqg"></ul>
+          </div>
+        </div>
+      </ReactModal>
     </div>
   )
 }
