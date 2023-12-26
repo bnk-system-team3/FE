@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { useRouter } from 'next/navigation'
+import ApplyBtn from './ApplyBtn.jsx'
 
 async function getData(id) {
   const res = await fetch(`https://moa-backend.duckdns.org/api/v1/meeting/${id}`)
@@ -34,15 +35,15 @@ export default async function DetailForm(props) {
             </path>
           </svg>
           </button>
-          <div className="studyContent_title__3680o">For Fun에서 두번째 프로덕트를 만드실 개발자분을 모집해요</div>
+          <div className="studyContent_title__3680o">[RN개발자] 💪 2024, 사이드프로젝트로 더 성장할 팀원 구합니다!</div>
           <div className="studyContent_userAndDate__1iYDv">
             <div className="studyContent_user__1XYmH">
               <img className="studyContent_userImg__3gyI-" src="/images/bnk.png" alt="userImg" />
-              <div className="studyContent_userName__1GBr8">땅콩이</div>
+              <div className="studyContent_userName__1GBr8">geonwoo</div>
             </div>
             <div className="studyContent_seperator__3CadK">
             </div>
-            <div className="studyContent_registeredDate__3lybC">2023.12.18</div>
+            <div className="studyContent_registeredDate__3lybC">2023.12.28</div>
           </div>
           <div className="recommendPost_totalWrapper__MvKNa">
             <div className="recommendPost_recommendWrapper__v-DsD">
@@ -50,7 +51,7 @@ export default async function DetailForm(props) {
                 <div className="recommendPost_bar__3GKlv">
                 </div>
                 <div className="recommendPost_userInfo__1Ozvo">
-                  <span className="recommendPost_userName__2gZg6">awdfaf</span>
+                  <span className="recommendPost_userName__2gZg6">GeonWoo</span>
                   님이
                   <br />
                   좋아하실 글을 모아봤어요!
@@ -117,7 +118,7 @@ export default async function DetailForm(props) {
               </li>
               <li className="studyInfo_contentWrapper__KkSUP">
                 <span className="studyInfo_title__3jXRE">시작 예정</span>
-                <span className="studyInfo_content__eqtqC">2024.01.07</span>
+                <span className="studyInfo_content__eqtqC">2024.01.08</span>
               </li>
               <li className="studyInfo_contentWrapper__KkSUP">
                 <span className="studyInfo_title__3jXRE">연락 방법</span>
@@ -138,14 +139,13 @@ export default async function DetailForm(props) {
                 <span className="studyInfo_title__3jXRE">모집 분야</span>
                 <ul className="studyInfo_languageList__1usTa">
                   <li className="studyInfo_positions__3JIxy">프론트엔드</li>
+                  <li className="studyInfo_positions__3JIxy">안드로이드</li>
                 </ul>
               </li>
               <li className="studyInfo_contentWrapper__KkSUP studyInfo_oneLineItem__3-9Q7">
                 <span className="studyInfo_title__3jXRE">사용 언어</span>
                 <ul className="studyInfo_languageList__1usTa">
-                  <li className="studyInfo_positions__3JIxy">프론트엔드</li>
-                  <li className="studyInfo_positions__3JIxy">프론트엔드</li>
-                  <li className="studyInfo_positions__3JIxy">프론트엔드</li>
+                  <li className="studyInfo_positions__3JIxy">React</li>
                 </ul>
               </li>
             </div>
@@ -153,11 +153,9 @@ export default async function DetailForm(props) {
         </section>
         <div className="studyContent_postContentWrapper__187Zh">
           <h2 className="studyContent_postInfo__3zpYu">모임 소개</h2>
-          {/* <div className="studyContent_postContent__2c-FO">
-            <p>
-              <strong>팀소개</strong>
-            </p>
-          </div> */}
+          <div className="studyContent_postContent__2c-FO">
+          <div class="sc-ksluID kFmqyc"><h2>RN개발자 모집합니다!</h2><p><br/></p><p>안녕하세요! 챌린지 관련 사이드프로젝트를 진행하고 있습니다.</p><p>현재 주요 기능과 디자인은 완료된 상태이며 개발에 들어가기 직전 상태입니다!</p><p>현재 팀원들은 (기획자/디자이너/프론트 개발/백앤드 개발) 인원들로총 6명입니다.</p><p>경력에 상관없이 프로젝트 참여 의지가 강하고 앞으로 저희와 함께 즐겁게 작업해주실 분들을 환영합니다!</p><p><br/></p><p>기획자 1명</p><p>디자이너 1명 </p><p>프론트 개발 1명</p><p>백엔드 개발 3명</p><p><br/></p><p>다들 열심히 하시고 서글서글 하신 분들이라 같이 으쌰으쌰해가면서</p><p>재밌게 사이드프로젝트 하실 RN개발자분만 오시면 될 것 같아요 😄</p><p><br/></p><p><br/></p><p><br/></p><h2>1. 사이드 프로젝트 아이디어</h2><p>자세한 아이디어는 합류하시면 한번 더 화면으로 설명드리겠습니다!</p><p><br/></p><p><strong>1) 프로젝트 명</strong>&nbsp;: 쓰리띵즈</p><p><strong>2) 프로젝트 내용 : </strong></p><p><br/></p><p>기존 챌린지는 결과를 성공 or 실패로 나누지만 우리 서비스는 목표를 3단계로 쪼개어 나누고</p><p>작은 성공이라도 그날 하루 목표를 성공이라고 여긴다.</p><p>실패 경험이 쌓일수록 목표를 그냥 포기하는 일이 자주 일어나기 때문에</p><p>작은 성공경험이라도 자주 겪게 만듦으로써 목표를 포기하지 않고 진행할 수 있게 도와준다.</p><p><br/></p><p>**목표를 3단계로 나누기란?</p><p>ex) 목표가 퇴근하고 공원에서 30분 인터벌 러닝하기 였다면</p><p>PERFECT / 공원에서 30분 인터벌 러닝 성공</p><p>BETTER / 공원에서 10분 러닝 성공</p><p>GOOD / 공원에서 산책하기</p><p>(목표 성공이 PERFECT이면 좋겠지만 GOOD만 달성해도 챌린지 성공이라고 봄)</p><h2>&nbsp;</h2><h2>2. 회의 진행 방식</h2><p>매주 수요일 9시 30분 온라인 회의</p><p>월 1회 오프라인 회의 (강남)</p><p><br/></p><h2>3. 상세 문의(오픈채팅 카톡)</h2><p>오픈채팅으로 지원 문의 주시면 더 빠른 응답이 가능합니다!</p><p>https://open.kakao.com/o/sBZXsRZf</p></div>
+          </div>
         </div>
         <section className="sc-hHEiqL ccTnQh">
           <div className="sc-kfYoZR lpaEYv">
@@ -187,12 +185,7 @@ export default async function DetailForm(props) {
 
 
 
-      <div className="sc-fnVZcZ hmqpxx">
-        <button className="sc-fFSPTT eEJWPz">바로지원</button>
-        <div className="sc-iemWCZ hKymwP">
-          <img src="/images/bookmark.png" className="sc-dIvrsQ biCrYn" />
-        </div>
-      </div>
+      <ApplyBtn />
     </div>
   )
 }

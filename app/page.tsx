@@ -1,6 +1,6 @@
 
 import React from 'react'
-import CategoryTabs from '../components/tabs/CategoryTabs.jsx'
+import CategoryTabs from '@/components/tabs/CategoryTabs.jsx'
 import Swiper from '@/components/swiper/BannerSwiper.jsx'
 
 
@@ -59,9 +59,9 @@ export default async function Home() {
                         <div className="badge_badge__ZfNyB">
                           <div className="badge_study__39LDm">🗂 {data[0].category}</div>
                         </div>
-                        <div className="css-4iipbq">🚨 마감 {daysLeft}일전</div>
+                        <div className="css-4iipbq">🚨 마감 5일전</div>
                       </div>
-                      <div className="css-3wobgm">마감일 | {data[0].dueDate.slice(0, 10)}</div>
+                      <div className="css-3wobgm">마감일 | 2024-01-02</div>
                       <h1 className="css-a6vgi6">{data[0].title}</h1>
                       <div className="css-1x6kfnp">👀 조회수 {data[0].viewCnt}회</div>
                     </a>
@@ -79,13 +79,13 @@ export default async function Home() {
                     <a className="css-1ezgidp" href="/meeting/detail/0" style={{ width: '100%', display: 'inline-block' }}>
                       <div className="css-oma2kw">
                         <div className="badge_badge__ZfNyB">
-                          <div className="badge_study__39LDm">🗂 프로젝트</div>
+                        <div className="badge_study__39LDm">🗂 {data[1].category}</div>
                         </div>
-                        <div className="css-4iipbq">🚨 마감 8일전</div>
+                        <div className="css-4iipbq">🚨 마감 2일전</div>
                       </div>
-                      <div className="css-3wobgm">마감일 | 2023.12.23</div>
-                      <h1 className="css-a6vgi6">[프론트] - 새로운 트렌디한 마켓플레이스 제작 팀원 모집</h1>
-                      <div className="css-1x6kfnp">👀 조회수 650회</div>
+                      <div className="css-3wobgm">마감일 | {data[1].dueDate.slice(0, 10)}</div>
+                      <h1 className="css-a6vgi6">{data[1].title}</h1>
+                      <div className="css-1x6kfnp">👀 조회수 {data[1].viewCnt}회</div>
                     </a>
                   </div>
                 </div>

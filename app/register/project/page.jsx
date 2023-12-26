@@ -12,6 +12,7 @@ import { useInput } from "@/hooks/useInput";
 import { useMultiCombo } from "@/hooks/useMultiCombo";
 import dayjs from 'dayjs';
 import { useRouter } from 'next/navigation';
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
 
 
 const QuillWrapper = dynamic(() => import('react-quill'), {
@@ -20,6 +21,8 @@ const QuillWrapper = dynamic(() => import('react-quill'), {
 })
 
 export default function page() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [size, setSize] = React.useState('sm')
   const [category, setCategory] = useState("프로젝트");
   const [recruitCnt, changeRecruitCnt] = useInput("");
   const [onOffStatus, setOnOffStatus] = useState(0);
@@ -39,6 +42,11 @@ export default function page() {
   ], '모집 포지션');
   const [chattingUrl, changechattingUrl] = useInput("");
   const router = useRouter();
+
+  const handleOpen = (size) => {
+    setSize(size)
+    onOpen();
+  }
 
   const register = async () => {
     // 원하는 형식으로 날짜 포맷팅
@@ -297,9 +305,34 @@ export default function page() {
         </section>
         <section className="writebutton_buttons__2qW83">
           <button className="writebutton_cancelButton__2W7b_">취소</button>
-          <button className="writebutton_registerButton__n_O2M" onClick={register}>글 등록</button>
+          <button className="writebutton_registerButton__n_O2M" onClick={() => handleOpen(size)}>글 등록</button>
         </section>
       </div>
+
+
+
+      <Modal
+        size={size}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1">생성 완료</ModalHeader>
+
+              <ModalFooter>
+                <Button color="danger" variant="light" onPress={onClose}>
+                  닫기
+                </Button>
+                <Button color="primary" onPress={() => { onClose; router.push('/two'); }} >
+                  홈으로
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
     </div>
 
   )

@@ -2,14 +2,14 @@
 
 import React, { useState } from 'react'
 import { Tabs, Tab, Card, CardBody, CardHeader } from "@nextui-org/react";
-import MeetingTable from '@/components/tables/MeetingTable.jsx';
+import MeetingTableNew from '@/components/tables/MeetingTableNew.jsx';
 import MeetingTable1 from '@/components/tables/MeetingTable1.jsx';
 import MeetingTable2 from '@/components/tables/MeetingTable2.jsx';
 import MeetingTable3 from '@/components/tables/MeetingTable3.jsx';
 import MeetingTable4 from '@/components/tables/MeetingTable4.jsx';
 import MeetingTable5 from '@/components/tables/MeetingTable5.jsx';
 
-export default function CategoryTabs() {
+export default function CategoryTabs1() {
 
   const [active, setActive] = useState(0);
 
@@ -26,7 +26,7 @@ export default function CategoryTabs() {
             <Tab key="1" title="전체">
               <Card>
                 <CardBody>
-                  <MeetingTable id={1} />
+                  <MeetingTableNew id={1} />
                 </CardBody>
               </Card>
             </Tab>
