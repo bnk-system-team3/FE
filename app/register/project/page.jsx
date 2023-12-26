@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import 'react-quill/dist/quill.snow.css';
 import dynamic from 'next/dynamic';
 import ComboBox from '@/components/comboBox/ComboBox.jsx';
@@ -7,9 +7,12 @@ import DisabledComboBox from '@/components/comboBox/DisabledComboBox';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
-import Editor from '@/components/editor/Editor'
+import RegisterEditor from '@/components/editor/RegisterEditor'
 import { useInput } from "@/hooks/useInput";
 import { useMultiCombo } from "@/hooks/useMultiCombo";
+import dayjs from 'dayjs';
+import { useRouter } from 'next/navigation';
+
 
 const QuillWrapper = dynamic(() => import('react-quill'), {
   ssr: false,
@@ -35,9 +38,13 @@ export default function page() {
     '프론트앤드', '백앤드', '디자이너', 'IOS', '안드로이드', '데브옵스', 'PM', '기획자'
   ], '모집 포지션');
   const [chattingUrl, changechattingUrl] = useInput("");
+  const router = useRouter();
 
   const register = async () => {
-    console.log(selectedskill.map(item => item.value));
+    // 원하는 형식으로 날짜 포맷팅
+    const formatStartDate = dayjs(startDate).format("YYYY-MM-DD");
+    const formatEndDate = dayjs(endDate).format("YYYY-MM-DD");
+    const formatDueDate = dayjs(dueDate).format("YYYY-MM-DD");
     try {
       const response = await axios.post('http://192.168.0.142:3200/board/saveStudyProjectBoard', {
         category: category,
@@ -46,9 +53,9 @@ export default function page() {
         recruitCnt: recruitCnt,
         onOffStatus: onOffStatus.value,
         chattingUrl: chattingUrl,
-        startDate: startDate,
-        endDate: endDate,
-        dueDate: dueDate,
+        startDate: formatStartDate,
+        endDate: formatEndDate,
+        dueDate: formatDueDate,
         techStack: selectedskill.map(item => item.value),
         positions: selectedPosition.map(item => item.value),
         location: "",
@@ -57,6 +64,8 @@ export default function page() {
 
       }
       );
+      alert("새글등록이 완료되었습니다.");
+      router.push('/');
       console.log(response)
     } catch (error) {
       console.log(error)
@@ -83,7 +92,7 @@ export default function page() {
       </div>
     );
   };
-  
+
   const OnOffStatusComboBox = ({ label, options }) => {
     const handleSelectChange = (option) => {
       setOnOffStatus(option);
@@ -282,8 +291,8 @@ export default function page() {
               height: '500px'
             }}
           >
-            <Editor 
-            onContentChange={handleEditorContentChange} />     
+            <RegisterEditor
+              onContentChange={handleEditorContentChange} />
           </div>
         </section>
         <section className="writebutton_buttons__2qW83">

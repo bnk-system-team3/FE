@@ -34,7 +34,7 @@ const Editor: React.FC<EditorProps> = ({ onContentChange }) => {
   });
 
   return (
-    <div className='css-xeauxt'>
+    <div>
       <BlockNoteView editor={editor} />
     </div>
   )
