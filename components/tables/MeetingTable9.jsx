@@ -124,7 +124,7 @@ export default function MeetingTable6(props) {
 
                       </TableHeader>
                       <TableBody style={{ textAlign: 'center' }}>
-                        <TableRow>
+                        {/* <TableRow>
                           <TableCell style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleNameClick}>
                             minsemanse
                           </TableCell>
@@ -133,7 +133,7 @@ export default function MeetingTable6(props) {
                             <Button onClick={() => handleOpen(size)} style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
                             <Button onClick={handleNoClick} style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
                           </TableCell>
-                        </TableRow >
+                        </TableRow > */}
                         <TableRow key="2">
                           <TableCell style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleNameClick}>geonwoo</TableCell>
                           <TableCell >프론트엔드</TableCell>
@@ -242,7 +242,7 @@ export default function MeetingTable6(props) {
               <ModalHeader className="flex flex-col gap-1">승인 완료</ModalHeader>
 
               <ModalFooter>
-                <Button color="danger" variant="light" onPress={() => { onClose; router.push('/four'); }}>
+                <Button color="danger" variant="light" onPress={onClose}>
                   닫기
                 </Button>
                 

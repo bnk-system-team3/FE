@@ -120,7 +120,7 @@ export default function Profile() {
             <img className="style_profileEditBtn__3NSbU" src="/images/profile_edit.png" alt="profile edit" />
           </label>
         </div>
-        <div className="css-nkt5tk">awdfaf님 환영해요.</div>
+        <div className="css-nkt5tk">GeonWoo님 환영해요.</div>
         <form className="css-1cw2qsn">
           <div className="css-17yaykr">
             <div className="css-1n7wtqw">
@@ -142,7 +142,7 @@ export default function Profile() {
           </div>
           <div className="css-17yaykr">
             <div className="css-1n7wtqw">이메일</div>
-            <div className="css-1ltmxea">abc@bnksys.co.kr</div>
+            <div className="css-1ltmxea">GeonWoo@bnksys.co.kr</div>
           </div>
           <div className="css-17yaykr">
             <div className="css-1n7wtqw">관심스택
