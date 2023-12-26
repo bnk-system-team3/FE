@@ -107,7 +107,7 @@ export default function MeetingTable(props) {
 
                     <Table aria-label="Example static collection table">
                       <TableHeader>
-                        <TableColumn style={{ textAlign: 'center' }}>이름</TableColumn>
+                        <TableColumn style={{ textAlign: 'center' }}>닉네임</TableColumn>
                         <TableColumn style={{ textAlign: 'center' }}>관심분야</TableColumn>
                         <TableColumn style={{ textAlign: 'center' }}>승인/반려</TableColumn>
 
@@ -115,7 +115,7 @@ export default function MeetingTable(props) {
                       <TableBody style={{ textAlign: 'center' }}>
                         <TableRow>
                           <TableCell style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleNameClick}>
-                            강민세
+                          minsemanse
                           </TableCell>
                           <TableCell >프론트엔드</TableCell>
                           <TableCell>
@@ -124,7 +124,7 @@ export default function MeetingTable(props) {
                           </TableCell>
                         </TableRow >
                         <TableRow key="2">
-                          <TableCell>박건우</TableCell>
+                          <TableCell style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleNameClick}>geonwoo</TableCell>
                           <TableCell >프론트엔드</TableCell>
                           <TableCell>
                             <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
@@ -132,7 +132,7 @@ export default function MeetingTable(props) {
                           </TableCell>
                         </TableRow>
                         <TableRow key="3">
-                          <TableCell>신정우</TableCell>
+                          <TableCell style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleNameClick}>JEONG</TableCell>
                           <TableCell >백엔드</TableCell>
                           <TableCell>
                             <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
@@ -140,7 +140,7 @@ export default function MeetingTable(props) {
                           </TableCell>
                         </TableRow>
                         <TableRow key="4">
-                          <TableCell>최영석</TableCell>
+                          <TableCell style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleNameClick}>Young-Seok</TableCell>
                           <TableCell >백엔드</TableCell>
                           <TableCell>
                             <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
