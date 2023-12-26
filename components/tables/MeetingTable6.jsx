@@ -5,22 +5,38 @@ import { useRouter } from 'next/navigation'
 import { Accordion, AccordionItem, Card, CardBody, Button } from "@nextui-org/react";
 import TeamPageBtn from '@/components/editor/TeamPageBtn.jsx';
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@nextui-org/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
 
 
 export default function MeetingTable6(props) {
   const defaultContent =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [size, setSize] = React.useState('sm')
+  const router = useRouter();
+
+  const handleOpen = (size) => {
+    setSize(size)
+    onOpen();
+  }
 
   // console.log(props.id);
 
-  const [projects, setProjects] = useState([]);
+
 
   const handleNameClick = () => {
     setIsModalOpen(true);
   };
 
-  let router = useRouter()
+
+  const [projects, setProjects] = useState([]);
+
+
+
+  const handleNoClick = () => {
+
+  };
 
   useEffect(() => {
     // 백엔드에서 프로젝트 데이터 가져오기
@@ -40,7 +56,7 @@ export default function MeetingTable6(props) {
   return (
     <div>
       <ul>
-      <div className="studyItem_studyItem__1Iipn studyItem_open__1PGn-">
+        <div className="studyItem_studyItem__1Iipn studyItem_open__1PGn-">
           <div>
             <li>
               <div className="studyItem_badgeWrapper__3AW7k">
@@ -95,59 +111,59 @@ export default function MeetingTable6(props) {
           </div>
           {props.id === 7 && (
             <Accordion isCompact>
-            <AccordionItem key="1" aria-label="Accordion 1" title="참가 신청 인원">
-              <Card>
-                <CardBody>
+              <AccordionItem key="1" aria-label="Accordion 1" title="참가 신청 인원">
+                <Card>
+                  <CardBody>
 
-                  <Table aria-label="Example static collection table">
-                    <TableHeader>
-                      <TableColumn style={{ textAlign: 'center' }}>이름</TableColumn>
-                      <TableColumn style={{ textAlign: 'center' }}>관심분야</TableColumn>
-                      <TableColumn style={{ textAlign: 'center' }}>승인/반려</TableColumn>
+                    <Table aria-label="Example static collection table">
+                      <TableHeader>
+                        <TableColumn style={{ textAlign: 'center' }}>닉네임</TableColumn>
+                        <TableColumn style={{ textAlign: 'center' }}>관심분야</TableColumn>
+                        <TableColumn style={{ textAlign: 'center' }}>승인/반려</TableColumn>
 
-                    </TableHeader>
-                    <TableBody style={{ textAlign: 'center' }}>
-                      <TableRow>
-                        <TableCell style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleNameClick}>
-                          강민세
-                        </TableCell>
-                        <TableCell >프론트엔드</TableCell>
-                        <TableCell>
-                          <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
-                          <Button style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
-                        </TableCell>
-                      </TableRow >
-                      <TableRow key="2">
-                        <TableCell>박건우</TableCell>
-                        <TableCell >프론트엔드</TableCell>
-                        <TableCell>
-                          <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
-                          <Button style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="3">
-                        <TableCell>신정우</TableCell>
-                        <TableCell >백엔드</TableCell>
-                        <TableCell>
-                          <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
-                          <Button style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="4">
-                        <TableCell>최영석</TableCell>
-                        <TableCell >백엔드</TableCell>
-                        <TableCell>
-                          <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
-                          <Button style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
-                        </TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </CardBody>
-              </Card>
+                      </TableHeader>
+                      <TableBody style={{ textAlign: 'center' }}>
+                        <TableRow>
+                          <TableCell style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleNameClick}>
+                            minsemanse
+                          </TableCell>
+                          <TableCell >프론트엔드</TableCell>
+                          <TableCell>
+                            <Button onClick={() => handleOpen(size)} style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
+                            <Button onClick={handleNoClick} style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
+                          </TableCell>
+                        </TableRow >
+                        <TableRow key="2">
+                          <TableCell style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleNameClick}>geonwoo</TableCell>
+                          <TableCell >프론트엔드</TableCell>
+                          <TableCell>
+                            <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
+                            <Button style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
+                          </TableCell>
+                        </TableRow>
+                        <TableRow key="3">
+                          <TableCell style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleNameClick}>JEONG</TableCell>
+                          <TableCell >백엔드</TableCell>
+                          <TableCell>
+                            <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
+                            <Button style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
+                          </TableCell>
+                        </TableRow>
+                        <TableRow key="4">
+                          <TableCell style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleNameClick}>Young-Seok</TableCell>
+                          <TableCell >백엔드</TableCell>
+                          <TableCell>
+                            <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
+                            <Button style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
+                          </TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
+                  </CardBody>
+                </Card>
 
-            </AccordionItem>
-          </Accordion>
+              </AccordionItem>
+            </Accordion>
           )}
           <div className="studyItem_seperator__1rRiE"></div>
         </div>
@@ -214,6 +230,28 @@ export default function MeetingTable6(props) {
         ))}
 
       </ul>
+      <Modal
+        size={size}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1">승인 완료</ModalHeader>
+
+              <ModalFooter>
+                <Button color="danger" variant="light" onPress={onClose}>
+                  닫기
+                </Button>
+                <Button color="primary" onPress={() => { onClose; router.push('/two'); }} >
+                  홈으로
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
     </div>
   )
 }
