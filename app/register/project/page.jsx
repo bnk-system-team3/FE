@@ -325,8 +325,8 @@ export default function page() {
                 <Button color="danger" variant="light" onPress={onClose}>
                   닫기
                 </Button>
-                <Button color="primary" onPress={() => { onClose; router.push('/two'); }} >
-                  홈으로
+                <Button color="primary" onPress={() => { onClose; router.push('/three'); }} >
+                  상세페이지
                 </Button>
               </ModalFooter>
             </>

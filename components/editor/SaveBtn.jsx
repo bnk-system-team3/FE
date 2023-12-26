@@ -46,8 +46,8 @@ export default function SaveBtn() {
                                 <Button color="danger" variant="light" onPress={onClose}>
                                     닫기
                                 </Button>
-                                <Button color="primary" onPress={() => {onClose; router.push('/');}} >
-                                    홈으로
+                                <Button color="primary" onPress={() => {onClose; router.push('/myList');}} >
+                                    목록으로
                                 </Button>
                             </ModalFooter>
                         </>

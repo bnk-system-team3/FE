@@ -48,7 +48,7 @@ export default function CreateBtn() {
                                 <Button color="danger" variant="light" onPress={onClose}>
                                     닫기
                                 </Button>
-                                <Button color="primary" onPress={() => { onClose; router.push('/two'); }} >
+                                <Button color="primary" onPress={() => { onClose; router.push('/three'); }} >
                                     홈으로
                                 </Button>
                             </ModalFooter>

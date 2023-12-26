@@ -7,13 +7,16 @@ import MeetingTable7 from '../tables/MeetingTable7.jsx';
 import MeetingTable8 from '../tables/MeetingTable8.jsx';
 
 export default function ListTabs() {
+  const [selected, setSelected] = React.useState("1");
+
   const variants = [
     "underlined",
   ];
   return (
     <div>
       {variants.map((variant) => (
-        <Tabs key={variant} variant={variant} aria-label="Tabs variants">
+        <Tabs key={variant} variant={variant} aria-label="Tabs variants" selectedKey={selected}
+        onSelectionChange={setSelected}>
           <Tab key="1" title="작성 목록">
             <Card>
               <CardBody>
