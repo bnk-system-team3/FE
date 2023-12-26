@@ -7,7 +7,7 @@ import DisabledComboBox from '@/components/comboBox/DisabledComboBox';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
-import Editor from '@/components/editor/Editor'
+import RegisterEditor from '@/components/editor/RegisterEditor'
 import { useInput } from "@/hooks/useInput";
 
 const QuillWrapper = dynamic(() => import('react-quill'), {
@@ -27,6 +27,10 @@ export default function page() {
   const [chattingUrl, changechattingUrl] = useInput("");
 
   const register = async () => {
+    // 원하는 형식으로 날짜 포맷팅
+    const formatStartDate = dayjs(startDate).format("YYYY-MM-DD");
+    const formatEndDate = dayjs(endDate).format("YYYY-MM-DD");
+    const formatDueDate = dayjs(dueDate).format("YYYY-MM-DD");
     try {
       const response = await axios.post('http://192.168.0.142:3200/board/saveStudyProjectBoard', {
         category: category,
@@ -35,9 +39,9 @@ export default function page() {
         recruitCnt: recruitCnt,
         onOffStatus: onOffStatus.value,
         chattingUrl: chattingUrl,
-        startDate: startDate,
-        endDate: endDate,
-        dueDate: dueDate,
+        startDate: formatStartDate,
+        endDate: formatEndDate,
+        dueDate: formatDueDate,
         location: "",
 
         userId: "1111111",
@@ -264,7 +268,7 @@ export default function page() {
               height: '500px'
             }}
           >
-            <Editor 
+            <RegisterEditor 
             onContentChange={handleEditorContentChange} />     
           </div>
         </section>
