@@ -4,9 +4,20 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Accordion, AccordionItem, Card, CardBody, Button } from "@nextui-org/react";
 import TeamPageBtn from '@/components/editor/TeamPageBtn.jsx';
-
+import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@nextui-org/react";
+import Modal from 'react-modal';
 
 export default function MeetingTable(props) {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleNameClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   const defaultContent =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
@@ -93,7 +104,51 @@ export default function MeetingTable(props) {
               <AccordionItem key="1" aria-label="Accordion 1" title="참가 신청 인원">
                 <Card>
                   <CardBody>
-                    {defaultContent}
+
+                    <Table aria-label="Example static collection table">
+                      <TableHeader>
+                        <TableColumn style={{ textAlign: 'center' }}>이름</TableColumn>
+                        <TableColumn style={{ textAlign: 'center' }}>관심분야</TableColumn>
+                        <TableColumn style={{ textAlign: 'center' }}>승인/반려</TableColumn>
+
+                      </TableHeader>
+                      <TableBody style={{ textAlign: 'center' }}>
+                        <TableRow>
+                          <TableCell style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleNameClick}>
+                            강민세
+                          </TableCell>
+                          <TableCell >프론트엔드</TableCell>
+                          <TableCell>
+                            <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
+                            <Button style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
+                          </TableCell>
+                        </TableRow >
+                        <TableRow key="2">
+                          <TableCell>박건우</TableCell>
+                          <TableCell >프론트엔드</TableCell>
+                          <TableCell>
+                            <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
+                            <Button style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
+                          </TableCell>
+                        </TableRow>
+                        <TableRow key="3">
+                          <TableCell>신정우</TableCell>
+                          <TableCell >백엔드</TableCell>
+                          <TableCell>
+                            <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
+                            <Button style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
+                          </TableCell>
+                        </TableRow>
+                        <TableRow key="4">
+                          <TableCell>최영석</TableCell>
+                          <TableCell >백엔드</TableCell>
+                          <TableCell>
+                            <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
+                            <Button style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
+                          </TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
                   </CardBody>
                 </Card>
 
@@ -643,9 +698,57 @@ export default function MeetingTable(props) {
           </div>
 
 
+
         ))} */}
 
+
+     
+
       </ul>
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        style={{
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          },
+          content: {
+            borderRadius:'50px',
+            height: '65%',
+            width: '30%',
+            margin: 'auto',
+          },
+        }}
+      >
+        <div>
+          <div class="userDetailModal_upSection__1Xqnt">
+            <div class="userDetailModal_modalHeader__HGpI1">
+              <Button style={{backgroundColor:'transparent'}}onClick={closeModal}>
+                <img class="userDetailModal_backButton__1-HjB" src="https://holaworld.io/images/info/close.png" alt="backBtn" />
+                </Button>
+              </div>
+            <div class="userDetailModal_avatarContainer__3jvPa">
+              <img class="userDetailModal_avatar__2MlM7" src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="user avatar" />
+
+            </div>
+          </div>
+          <div class="userDetailModal_modalContent__2QmRv">
+            <div class="userDetailModal_modalContent__2QmRv">강민세</div>
+            <div class="userDetailModal_careerInfo__1niLG">
+              <div class="userDetailModal_position__3aTFw">프론트엔드 개발자</div>
+              <div class="userDetailModal_workExperience__3mlu0">1년차</div>
+            </div>
+            <div class="userDetailModal_likeLanguagesConatiner__1agju">
+              <div class="userDetailModal_languagesText__1WOWx">관심 스택</div>
+              <ul class="userDetailModal_likeLanguages__FNuBZ">
+                <li class="userDetailModal_languageItem__15MoB">React</li>
+              </ul>
+            </div>
+            <div class="userDetailModal_introduces__1-ahE">만나서 반가워요!</div>
+            <ul class="userDetailModal_urls__3Loqg"></ul>
+          </div>
+        </div>
+      </Modal>
     </div>
   )
 }
