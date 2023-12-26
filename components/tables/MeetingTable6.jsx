@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Accordion, AccordionItem, Card, CardBody, Button } from "@nextui-org/react";
 import TeamPageBtn from '@/components/editor/TeamPageBtn.jsx';
+import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@nextui-org/react";
 
 
 export default function MeetingTable6(props) {
@@ -14,6 +15,10 @@ export default function MeetingTable6(props) {
   // console.log(props.id);
 
   const [projects, setProjects] = useState([]);
+
+  const handleNameClick = () => {
+    setIsModalOpen(true);
+  };
 
   let router = useRouter()
 
@@ -90,15 +95,59 @@ export default function MeetingTable6(props) {
           </div>
           {props.id === 7 && (
             <Accordion isCompact>
-              <AccordionItem key="1" aria-label="Accordion 1" title="참가 신청 인원">
-                <Card>
-                  <CardBody>
-                    {defaultContent}
-                  </CardBody>
-                </Card>
+            <AccordionItem key="1" aria-label="Accordion 1" title="참가 신청 인원">
+              <Card>
+                <CardBody>
 
-              </AccordionItem>
-            </Accordion>
+                  <Table aria-label="Example static collection table">
+                    <TableHeader>
+                      <TableColumn style={{ textAlign: 'center' }}>이름</TableColumn>
+                      <TableColumn style={{ textAlign: 'center' }}>관심분야</TableColumn>
+                      <TableColumn style={{ textAlign: 'center' }}>승인/반려</TableColumn>
+
+                    </TableHeader>
+                    <TableBody style={{ textAlign: 'center' }}>
+                      <TableRow>
+                        <TableCell style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleNameClick}>
+                          강민세
+                        </TableCell>
+                        <TableCell >프론트엔드</TableCell>
+                        <TableCell>
+                          <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
+                          <Button style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
+                        </TableCell>
+                      </TableRow >
+                      <TableRow key="2">
+                        <TableCell>박건우</TableCell>
+                        <TableCell >프론트엔드</TableCell>
+                        <TableCell>
+                          <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
+                          <Button style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
+                        </TableCell>
+                      </TableRow>
+                      <TableRow key="3">
+                        <TableCell>신정우</TableCell>
+                        <TableCell >백엔드</TableCell>
+                        <TableCell>
+                          <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
+                          <Button style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
+                        </TableCell>
+                      </TableRow>
+                      <TableRow key="4">
+                        <TableCell>최영석</TableCell>
+                        <TableCell >백엔드</TableCell>
+                        <TableCell>
+                          <Button style={{ backgroundColor: '#fff', border: 'solid 1px #cb2b11', borderColor: '#cb2b11', marginRight: '10px', fontWeight: 'bold' }}>승인</Button>
+                          <Button style={{ backgroundColor: '#cb2b11', color: '#fff', fontWeight: 'bold' }}>반려</Button>
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </CardBody>
+              </Card>
+
+            </AccordionItem>
+          </Accordion>
           )}
           <div className="studyItem_seperator__1rRiE"></div>
         </div>

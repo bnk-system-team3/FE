@@ -35,7 +35,7 @@ export default function MeetingTableNew(props) {
   return (
     <div>
       <ul>
-        <div className="studyItem_studyItem__1Iipn studyItem_open__1PGn-">
+      <div className="studyItem_studyItem__1Iipn studyItem_open__1PGn-">
           <div>
             <li>
               <div className="studyItem_badgeWrapper__3AW7k">

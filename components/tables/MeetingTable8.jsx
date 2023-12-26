@@ -55,6 +55,7 @@ export default function MeetingTable8(props) {
               </a>
               <ul className="studyItem_positionList__1jzi_">
                 <li className="studyItem_position__2sRRD">아무나</li>
+                
               </ul>
               <ul className="studyItem_content__1mJ9M">
                 {props.id === 9 && (
