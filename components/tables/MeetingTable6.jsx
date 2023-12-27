@@ -25,7 +25,7 @@ export default function MeetingTable6(props) {
 
   // console.log(props.id);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  
 
   const handleNameClick = () => {
     setIsModalOpen(true);
@@ -241,7 +241,7 @@ export default function MeetingTable6(props) {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">생성 완료</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1">승인 완료</ModalHeader>
 
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={() => { onClose; router.push('/four'); }}>
@@ -276,12 +276,12 @@ export default function MeetingTable6(props) {
               </Button>
             </div>
             <div class="userDetailModal_avatarContainer__3jvPa">
-              <img class="userDetailModal_avatar__2MlM7" src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="user avatar" />
+              <img class="userDetailModal_avatar__2MlM7" src="/images/bnk.png" alt="user avatar" />
 
             </div>
           </div>
           <div class="userDetailModal_modalContent__2QmRv">
-            <div class="userDetailModal_modalContent__2QmRv">강민세</div>
+            <div class="userDetailModal_modalContent__2QmRv">minsemanse</div>
             <div class="userDetailModal_careerInfo__1niLG">
               <div class="userDetailModal_position__3aTFw">프론트엔드 개발자</div>
               <div class="userDetailModal_workExperience__3mlu0">1년차</div>

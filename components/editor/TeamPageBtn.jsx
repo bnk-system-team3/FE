@@ -59,9 +59,9 @@ export default function TeamPageBtn() {
                 <div>
                   <div className="githubButton_buttonWrapper__5pwEe">
                     <Link className="googleButton_button__3G4DT" href="/editor/hobby">
-                      <img src="/images/category/volunteer.png" alt="logo" className="w-100 h-100" />
+                      <img src="/images/category/gallery.png" alt="logo" className="w-100 h-100" />
                     </Link>
-                    <p className="githubButton_loginDescription__3cZtC">봉사</p>
+                    <p className="githubButton_loginDescription__3cZtC">갤러리</p>
                   </div>
                 </div>
                 

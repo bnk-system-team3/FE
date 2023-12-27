@@ -156,16 +156,12 @@ export default async function page() {
                         <div className="sc-ksluID kFmqyc">
                             <div className="sc-ksluID kFmqyc">
                                 <p>안녕하세요 저희는 비대면진료, 병원예약 앱을 출시 </p>
-                                <p>준비중인 우주닥 입니다</p>
+                                <p>준비중인 GeonWoo 입니다</p>
                                 <p>같이 성장해나가실 디자이너 모십니다</p>
                                 <p>
                                     <br />
                                 </p>
-                                <p>&lt;웹사이트&gt;</p>
-                                <p>https://www.woojoodoc.com/job</p>
-                                <p>
-                                    <br />
-                                </p>
+                                
                                 <p>&lt;모집 포지션&gt;</p>
                                 <p>UX/UI 디자이너</p>
                                 <p>CPO, 프로덕트 총괄  </p>
